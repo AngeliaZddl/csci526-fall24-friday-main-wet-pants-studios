@@ -105,8 +105,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         {
             itemDescriptionImage.sprite = emptySprite;
         }
-
-
     }
 
     public void OnRightClick()

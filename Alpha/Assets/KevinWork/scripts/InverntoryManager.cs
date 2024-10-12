@@ -7,6 +7,7 @@ public class InverntoryManager : MonoBehaviour
     public GameObject InventoryMenu;
     private bool menuActived;
     public ItemSlot[] itemSlot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class InverntoryManager : MonoBehaviour
         //close bp
         if (Input.GetKeyDown(KeyCode.B) && menuActived)
         {
-            //这个好像是停止时停？
+            //time release
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             menuActived = false;
@@ -27,7 +28,7 @@ public class InverntoryManager : MonoBehaviour
         //open bp
         else if (Input.GetKeyDown(KeyCode.B) && !menuActived)
         {
-            //这个好像是时停？
+            //time stop
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             menuActived = true;
@@ -55,6 +56,19 @@ public class InverntoryManager : MonoBehaviour
         }
         return quantity;
 
+    }
+
+    public bool itemCheck(string itemName, int quantity)
+    {
+        //Debug.Log("Itemname: " + itemName + ", quantity: " + quantity + ", itemSprite: " + itemSprite);
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            if (itemSlot[i].itemName == itemName && itemSlot[i].quantity == quantity)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void DeselectAllSlots()
