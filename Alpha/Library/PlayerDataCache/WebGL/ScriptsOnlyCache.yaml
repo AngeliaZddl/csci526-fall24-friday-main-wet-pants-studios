@@ -18,7 +18,6 @@ ScriptsOnlyBuild:
     - victoryCheck
     Unity.Play.Publisher.Editor.dll:
     - Unity.Play.Publisher.Editor.AnalyticsHelper
-    - Unity.Play.Publisher.Editor.PublisherWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -35,10 +34,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -119,23 +116,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1564}
+      Script: {instanceID: 1602}
     - Class: 114
-      Script: {instanceID: 1606}
+      Script: {instanceID: 2182}
     - Class: 114
-      Script: {instanceID: 2186}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 3098}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 4080}
     - Class: 114
-      Script: {instanceID: 4084}
+      Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 4340}
+      Script: {instanceID: 5034}
     - Class: 114
-      Script: {instanceID: 5036}
+      Script: {instanceID: 5586}
     - Class: 114
       Script: {instanceID: 5658}
     - Class: 114
@@ -202,43 +199,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1538}
+      Script: {instanceID: 1602}
     - Class: 114
-      Script: {instanceID: 1564}
+      Script: {instanceID: 2400}
     - Class: 114
-      Script: {instanceID: 1606}
+      Script: {instanceID: 2446}
     - Class: 114
-      Script: {instanceID: 2404}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2450}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2812}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 2836}
     - Class: 114
-      Script: {instanceID: 2816}
+      Script: {instanceID: 3308}
     - Class: 114
-      Script: {instanceID: 2840}
+      Script: {instanceID: 3672}
     - Class: 114
-      Script: {instanceID: 3312}
+      Script: {instanceID: 3700}
     - Class: 114
-      Script: {instanceID: 3676}
+      Script: {instanceID: 3852}
     - Class: 114
-      Script: {instanceID: 3704}
+      Script: {instanceID: 3920}
     - Class: 114
-      Script: {instanceID: 3856}
+      Script: {instanceID: 4424}
     - Class: 114
-      Script: {instanceID: 3924}
+      Script: {instanceID: 4626}
     - Class: 114
-      Script: {instanceID: 4628}
+      Script: {instanceID: 4720}
     - Class: 114
-      Script: {instanceID: 4722}
+      Script: {instanceID: 4972}
     - Class: 114
-      Script: {instanceID: 4974}
+      Script: {instanceID: 5034}
     - Class: 114
-      Script: {instanceID: 5036}
+      Script: {instanceID: 5436}
     - Class: 114
-      Script: {instanceID: 5438}
+      Script: {instanceID: 5586}
     - Class: 114
       Script: {instanceID: 5740}
     - Class: 114
@@ -272,18 +269,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 26f88face89b824b8efbead2124ca6be
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: DoorControllerRight
-  - hash:
-      serializedVersion: 2
-      Hash: 540882762544409cc4530e60db00e951
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -742,6 +727,12 @@ ScriptsOnlyBuild:
     className: UnityOnCancelMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 26f88face89b824b8efbead2124ca6be
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DoorControllerRight
+  - hash:
+      serializedVersion: 2
       Hash: 7e9cad7f71f9cc52f699bbd2d2a75734
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -902,6 +893,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: victoryCheck
+  - hash:
+      serializedVersion: 2
+      Hash: 540882762544409cc4530e60db00e951
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: e254e93f26b3a9b8f5153ee944353c13
@@ -1213,4 +1210,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
   playerPath: /Users/woodkong/Developer/Unity/csci526-fall24-friday-main-wet-pants-studios/Alpha/WebGL
-    Builds
+    Builds/Build 8
