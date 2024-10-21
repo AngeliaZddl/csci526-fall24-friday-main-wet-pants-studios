@@ -21,6 +21,14 @@ public class PlayerSanity : MonoBehaviour
     {
         playerSanity -= (sanityDecline + additionalDecline) * Time.deltaTime;
         textUI.text = "Sanity: " + ((int)playerSanity).ToString();
+        if(additionalDecline > 0.0f)
+        {
+            textUI.color = Color.red;
+        }
+        else
+        {
+            textUI.color = Color.white;
+        }
         //print(playerSanity);
     }
 }

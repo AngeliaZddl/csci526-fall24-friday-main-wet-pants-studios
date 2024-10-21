@@ -342,6 +342,7 @@
 "Assets/KevinWork/scripts/ItemFoundSample.cs"
 "Assets/KevinWork/scripts/ItemSlot.cs"
 "Assets/KevinWork/scripts/victoryCheck.cs"
+"Assets/MessageDismiss.cs"
 "Assets/Scripts/DeathHandler.cs"
 "Assets/Scripts/DoorControlLeft.cs"
 "Assets/Scripts/DoorControlRight.cs"

@@ -7,6 +7,8 @@ public class SensorItemPickup : MonoBehaviour
 
     public GameObject sensoritem;
     public GameObject playerSensor;
+    public GameObject textUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class SensorItemPickup : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            textUI.SetActive(true);
             sensoritem.SetActive(false);
             playerSensor.SetActive(true);
         }

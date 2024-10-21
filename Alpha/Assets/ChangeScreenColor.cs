@@ -22,6 +22,27 @@ public class ChangeScreenColor : MonoBehaviour
         GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
         targetGhost = FindClosestGhost(ghosts);
         changeScreenColorByDistance(targetGhost);
+
+        // Find player for sanity control
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+
+        if (targetGhost != null)
+        {
+            float distance = Vector3.Distance(transform.position, targetGhost.transform.position);
+            if (p)
+            {
+                PlayerSanity ps = p.GetComponent<PlayerSanity>();
+                if (distance <= redDistance)
+                {
+                    ps.additionalDecline = 1.0f;
+
+                }
+                else
+                {
+                    ps.additionalDecline = 0.0f;
+                }
+            }
+        }
     }
 
     GameObject FindClosestGhost(GameObject[] ghosts)

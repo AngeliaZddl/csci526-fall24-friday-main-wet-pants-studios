@@ -6,6 +6,8 @@ public class FlashlightItemPickup : MonoBehaviour
 {
     public GameObject flashlightitem;
     public GameObject playerFlashlight;
+    public GameObject textUI;
+    private bool happened = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +25,15 @@ public class FlashlightItemPickup : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            flashlightitem.SetActive(false);
-            playerFlashlight.SetActive(true);
+            if(!happened)
+            {
+                textUI.SetActive(true);
+                playerFlashlight.SetActive(true);
+                flashlightitem.SetActive(false);
+            }
+
         }
     }
+
+
 }
