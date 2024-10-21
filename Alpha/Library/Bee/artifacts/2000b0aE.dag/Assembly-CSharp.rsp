@@ -354,6 +354,8 @@
 "Assets/Scripts/PlayerInventory.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/PlayerSanity.cs"
+"Assets/Scripts/StandingGhostTrigger.cs"
+"Assets/Scripts/StandingGhostTrigger2.cs"
 "Assets/UVLight/setUVLight.cs"
 -langversion:9.0
 /deterministic
