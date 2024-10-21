@@ -345,6 +345,7 @@
 "Assets/Scripts/DoorControlLeft.cs"
 "Assets/Scripts/DoorControlRight.cs"
 "Assets/Scripts/ElevatorButtonControl.cs"
+"Assets/Scripts/ElevatorCloseButtonControl.cs"
 "Assets/Scripts/ElevatorControl.cs"
 "Assets/Scripts/GhostAudioController.cs"
 "Assets/Scripts/GhostMovement.cs"
