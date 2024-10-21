@@ -5,7 +5,7 @@ public class ElevatorControl : MonoBehaviour
     public Animator doorAnimator1;  // Animator controlling the elevator door
     public Transform player1;       // Player object
     public float interactionDistance1 = 3f;  // Interaction distance for using the elevator
-    public float autoCloseDelay = 5f;  // Time in seconds before the door automatically closes
+    // public float autoCloseDelay = 5f;  // Time in seconds before the door automatically closes
 
     private bool isDoorOpen = false;  // Tracks the current state of the elevator door
      void Start()
@@ -43,7 +43,7 @@ public class ElevatorControl : MonoBehaviour
     {
         doorAnimator1.SetTrigger("Open");  // Trigger the open animation
         isDoorOpen = true;  // Mark the door as open
-        Invoke("CloseDoor", autoCloseDelay);  // Automatically close the door after a delay
+        // Invoke("CloseDoor", autoCloseDelay);  // Automatically close the door after a delay
     }
 
     void CloseDoor()
