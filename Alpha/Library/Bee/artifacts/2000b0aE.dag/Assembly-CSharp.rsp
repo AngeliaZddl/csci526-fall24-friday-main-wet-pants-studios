@@ -335,6 +335,8 @@
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.43f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.43f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/ChangeScreenColor.cs"
+"Assets/FlashlightItemPickup.cs"
 "Assets/KevinWork/scripts/InverntoryManager.cs"
 "Assets/KevinWork/scripts/Item.cs"
 "Assets/KevinWork/scripts/ItemFoundSample.cs"
@@ -356,6 +358,7 @@
 "Assets/Scripts/PlayerSanity.cs"
 "Assets/Scripts/StandingGhostTrigger.cs"
 "Assets/Scripts/StandingGhostTrigger2.cs"
+"Assets/SensorItemPickup.cs"
 "Assets/UVLight/setUVLight.cs"
 -langversion:9.0
 /deterministic
