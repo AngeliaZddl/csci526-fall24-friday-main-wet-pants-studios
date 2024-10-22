@@ -7,6 +7,7 @@ public class StandingGhostTrigger : MonoBehaviour
     public GameObject standingGhost;
     public GameObject ghost;
     public GameObject lights;
+    public GameObject textUI;
     private bool happened = false;
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class StandingGhostTrigger : MonoBehaviour
                 standingGhost.SetActive(false);
                 ghost.SetActive(true);
                 lights.SetActive(false);
+                textUI.SetActive(true);
                 happened = true;
             }
         }

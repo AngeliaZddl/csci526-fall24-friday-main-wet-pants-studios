@@ -8,7 +8,7 @@ public class MessageDismiss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelayDismiss(1.0f));
+        StartCoroutine(DelayDismiss(2.0f));
     }
 
     // Update is called once per frame
