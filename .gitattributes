@@ -1,0 +1,15 @@
+
+* text=auto
+
+
+*.sh eol=lf
+*.cs eol=lf
+*.meta eol=lf
+*.unity eol=lf
+*.mat eol=lf
+
+
+*.png binary
+*.jpg binary
+*.fbx binary
+*.dll binary
