@@ -1,46 +1,47 @@
 ﻿<Properties StartupConfiguration="{AD9B82C9-BDBC-1B2C-4E33-5606A72167FA}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DoorControlRight.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ElevatorCloseButtonControl.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerSanity.cs" Line="12" Column="1" />
       <File FileName="Assets/Scripts/PlayerInventory.cs" />
       <File FileName="Assets/Scripts/PlayerMovement.cs" />
-      <File FileName="Assets/Scripts/GhostAudioController.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/GhostAudioController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/JumpOnDoorOpen.cs" />
-      <File FileName="Assets/Scripts/ElevatorButtonControl.cs" Line="47" Column="22" />
+      <File FileName="Assets/Scripts/ElevatorButtonControl.cs" Line="59" Column="15" />
       <File FileName="Assets/Scripts/ElevatorControl.cs" />
       <File FileName="Assets/Scripts/MainMenu.cs" />
-      <File FileName="Assets/Scripts/StandingGhostDisappear.cs" Line="23" Column="6" />
-      <File FileName="Assets/Scripts/StandingGhostTrigger.cs" Line="34" Column="40" />
-      <File FileName="Assets/Scripts/StandingGhostTrigger2.cs" Line="31" Column="10" />
-      <File FileName="Assets/Scripts/GhostMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/ChangeScreenColor.cs" Line="47" Column="1" />
-      <File FileName="Assets/FlashlightItemPickup.cs" Line="30" Column="40" />
-      <File FileName="Assets/SensorItemPickup.cs" Line="28" Column="36" />
-      <File FileName="Assets/MessagePopup.cs" Line="11" Column="38" />
-      <File FileName="Assets/Scripts/DoorControlRight.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StandingGhostTrigger.cs" />
+      <File FileName="Assets/Scripts/StandingGhostTrigger2.cs" />
+      <File FileName="Assets/Scripts/GhostMovement.cs" />
+      <File FileName="Assets/ChangeScreenColor.cs" />
+      <File FileName="Assets/FlashlightItemPickup.cs" />
+      <File FileName="Assets/SensorItemPickup.cs" />
+      <File FileName="Assets/Scripts/DoorControlRight.cs" />
+      <File FileName="Assets/UVLight/setUVLight.cs" />
+      <File FileName="Assets/UVLight/RevealInUVLight.shader" Line="1" Column="1" />
+      <File FileName="Assets/KevinWork/scripts/victoryCheck.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/ElevatorCloseButtonControl.cs" Line="105" Column="51" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Alpha" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="DoorControlRight.cs" selected="True" />
+              <Node name="KevinWork" expanded="True">
+                <Node name="scripts" expanded="True" />
               </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="ElevatorCloseButtonControl.cs" selected="True" />
+              </Node>
+              <Node name="UVLight" expanded="True" />
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="27f803f6-0e67-447b-b07f-abf887aca2a2" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4c66aacd-49ff-4f00-8cc0-5235027994e2" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

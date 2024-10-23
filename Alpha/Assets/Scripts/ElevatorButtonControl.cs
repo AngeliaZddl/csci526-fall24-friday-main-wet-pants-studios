@@ -56,7 +56,7 @@ public class ElevatorButtonControl : MonoBehaviour
         // Perform Raycast to determine if there are any obstacles between the player and the button
         if (Physics.Raycast(player.position, directionToButton, distanceToButton, obstacleLayerMask))
         {
-            Debug.Log("Obstacle detected between player and button");
+            //Debug.Log("Obstacle detected between player and button");
             return true;  // Obstacle detected
         }
 

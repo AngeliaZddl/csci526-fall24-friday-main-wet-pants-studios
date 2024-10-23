@@ -734,7 +734,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -754,11 +760,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 66d3ddde-7488-4545-9888-7c54ea1c9da1
+  cloudProjectId: 8e21962d-7486-4abb-b413-06239e758906
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Alpha 2024-10-09_19-08-58
-  organizationId: jacksontan0708
+  projectName: Alpha
+  organizationId: woodkong
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
