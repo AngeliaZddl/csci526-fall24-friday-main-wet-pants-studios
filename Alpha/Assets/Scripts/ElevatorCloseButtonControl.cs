@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using Unity.Services.Analytics;
+using Unity.Services.Core;
 
 public class ElevatorCloseButtonControl : MonoBehaviour
 {
@@ -15,14 +17,25 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     private float distance;  // Stores the distance to avoid redundant calculations
     private Coroutine hideMessageCoroutine;  // Reference to the coroutine used to hide the message
 
+    private float time2clearlevel;
+
     void Start()
     {
+        // Analytics service start
+        UnityServices.InitializeAsync();
+        AnalyticsService.Instance.StartDataCollection();
+        // start timer for level2clear event
+        time2clearlevel = 0.0f;
+
         // Ensure the victoryCanvas is initially hidden
         victoryCanvas.SetActive(false);
     }
 
     void Update()
     {
+        // increment timer
+        time2clearlevel += Time.deltaTime;
+
         // Calculate the distance between the player and the button
         distance = Vector3.Distance(player.position, transform.position);
 
@@ -67,7 +80,7 @@ public class ElevatorCloseButtonControl : MonoBehaviour
         // Perform Raycast to detect if there is any object blocking between the player and the button
         if (Physics.Raycast(player.position, directionToButton, distanceToButton, obstacleLayerMask))
         {
-            Debug.Log("Obstacle detected between player and button");
+            //Debug.Log("Obstacle detected between player and button");
             return true;  // Obstacle detected
         }
 
@@ -84,6 +97,13 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 
         // Show the victory UI
         ShowVictoryUI();
+
+        levelClear lc = new levelClear
+        {
+            time2clear = time2clearlevel
+        };
+        AnalyticsService.Instance.RecordEvent(lc);
+        Debug.Log("Event sent: time2clear = " + time2clearlevel);
 
         // Quit the game after a short delay (2 seconds)
         Invoke("QuitGame", 2f);
@@ -145,4 +165,13 @@ public class ElevatorCloseButtonControl : MonoBehaviour
             }
         }
     }
+}
+
+public class levelClear : Unity.Services.Analytics.Event
+{
+    public levelClear() : base("levelClear")
+    {
+    }
+
+    public float time2clear { set { SetParameter("time2clear", value); } }
 }
