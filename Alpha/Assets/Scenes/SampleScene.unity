@@ -413,7 +413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &49292789
 Transform:
   m_ObjectHideFlags: 0
@@ -8692,6 +8692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionLight: {fileID: 1332314243}
   revealMaterial: {fileID: 2100000, guid: 330ab68a69997cf4ca4917c163e0d6d7, type: 2}
+  handler: {fileID: 49292788}
 --- !u!1 &1125629023
 GameObject:
   m_ObjectHideFlags: 0
