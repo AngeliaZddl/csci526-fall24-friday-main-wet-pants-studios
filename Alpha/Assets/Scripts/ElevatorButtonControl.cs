@@ -10,6 +10,7 @@ public class ElevatorButtonControl : MonoBehaviour
     private InverntoryManager inverntoryManager;
     public TMP_Text statusKey;  // Reference to the status text UI
     public LayerMask obstacleLayerMask; // Used to specify which objects are considered obstacles
+    public GameObject puzzle;
 
     void Start()
     {
