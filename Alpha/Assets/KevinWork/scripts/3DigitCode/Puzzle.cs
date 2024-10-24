@@ -14,6 +14,8 @@ public class Puzzle : MonoBehaviour
     public TextMeshProUGUI secDigit;
     public TextMeshProUGUI thiDigit;
 
+    public ElevatorButtonControl elevatorButtonControl;
+
     private void Update()
     {
         // Update the UI with the current digit values
@@ -60,5 +62,7 @@ public class Puzzle : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;  // Lock the cursor to the center of the screen
         Cursor.visible = false;  // Hide the cursor
         Close();  // Close the UI
+        //修改点
+        elevatorButtonControl.ClosePasswordPanel();
     }
 }

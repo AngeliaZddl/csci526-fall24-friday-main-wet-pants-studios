@@ -32,6 +32,7 @@ public class ElevatorButtonControl : MonoBehaviour
         // 如果电梯门未打开且玩家在交互距离内且没有障碍物，则允许打开UI
         if (!isDoorOpen && distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
+            Debug.Log("isInteracting: "+ isInteracting);
             if (!isInteracting)
             {
                 statusText.text = "Press E to enter password";
@@ -48,11 +49,11 @@ public class ElevatorButtonControl : MonoBehaviour
             statusText.enabled = false;  // 当超出距离时隐藏提示
         }
 
-        // 检测玩家是否按下 Enter 键来提交密码
-        if (passwordPanel.activeSelf && Input.GetKeyDown(KeyCode.Return))
-        {
-            puzzleScript.Submit();  // 调用 Puzzle 的 Submit 方法来验证密码
-        }
+        //// 检测玩家是否按下 Enter 键来提交密码  抽象写法 别这么干了
+        //if (passwordPanel.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    puzzleScript.Submit();  // 调用 Puzzle 的 Submit 方法来验证密码
+        //}
     }
 
     // 打开密码输入面板
@@ -70,16 +71,7 @@ public class ElevatorButtonControl : MonoBehaviour
         }
     }
 
-    // 关闭密码面板并重置交互状态
-    public void ClosePasswordPanel()
-    {
-        isInteracting = false;  // 重置交互状态
-        passwordPanel.SetActive(false);  // 隐藏密码面板
 
-        // 锁定并隐藏鼠标
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
 
     // 检查玩家与按钮之间是否有障碍物
     bool IsObstacleBetweenPlayerAndButton()
@@ -105,4 +97,17 @@ public class ElevatorButtonControl : MonoBehaviour
             ClosePasswordPanel();  // 关闭密码面板
         }
     }
+
+    // 关闭密码面板并重置交互状态
+    public void ClosePasswordPanel()
+    {
+        isInteracting = false;  // 重置交互状态
+        passwordPanel.SetActive(false);  // 隐藏密码面板
+
+        // 锁定并隐藏鼠标
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+
 }

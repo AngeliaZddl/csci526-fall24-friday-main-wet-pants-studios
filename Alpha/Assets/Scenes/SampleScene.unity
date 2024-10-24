@@ -8200,6 +8200,7 @@ MonoBehaviour:
   firDigit: {fileID: 298768774}
   secDigit: {fileID: 404749512}
   thiDigit: {fileID: 875489700}
+  elevatorButtonControl: {fileID: 1000419824}
 --- !u!114 &1079074125
 MonoBehaviour:
   m_ObjectHideFlags: 0
