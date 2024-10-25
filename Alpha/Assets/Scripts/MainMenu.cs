@@ -1,30 +1,30 @@
-//using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // 用于场景管理
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MainMenuController : MonoBehaviour
 {
-    // 加载 SampleScene
+    // 单例实例
+    public static MainMenuController Instance;
+
+    // 定义你想要加载的场景
     public string gameScene = "SampleScene";
+
+    // 启动游戏并加载游戏场景
     public void StartGame()
     {
-        Debug.Log("start");
-        ReturnToGame();  // 加载游戏的主场景
+        Debug.Log("Loading SampleScene...");
+        SceneManager.LoadScene(gameScene);  // 加载 SampleScene
     }
 
     // 退出游戏
     public void QuitGame()
     {
-        Debug.Log("quit");
+        Debug.Log("Quitting game...");
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;  // 如果在编辑器中，停止播放
         #else
             Application.Quit();  // 在构建后退出游戏
         #endif
-    }
-
-    void ReturnToGame()
-    {
-        SceneManager.LoadScene(gameScene);  // 加载主菜单场景
     }
 }
