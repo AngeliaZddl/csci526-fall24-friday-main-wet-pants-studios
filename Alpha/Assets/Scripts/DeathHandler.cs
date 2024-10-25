@@ -1,16 +1,12 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // 用于场景管理
-using UnityEngine.UI;               // 用于UI控制
+using UnityEngine.SceneManagement;
 
 public class DeathHandler : MonoBehaviour
 {
-    public GameObject deathPanel;      // 死亡通知面板
-    public GameObject jumpObject;      // 跳出的物体
-    public float delayBeforeDeath = 2f;  // 跳出物体后延迟时间，单位：秒
-    public string mainMenuSceneName = "MainMenu";  // 主菜单场景的名称
-
-    private JumpOnDoorOpen jumpObjectstatus;  // 检测 jumpObject 是否出现
+    public GameObject deathPanel;         // 死亡通知面板
+    public float delayBeforeDeath = 0.02f;   // 跳出物体后延迟时间
+    // public string mainMenuSceneName = "MainMenu";  // 主菜单场景的名称
 
     void Start() 
     {
@@ -33,16 +29,10 @@ public class DeathHandler : MonoBehaviour
     // 协程处理死亡后的流程
     private IEnumerator HandleDeath()
     {
-        // 延迟 delayBeforeDeath 秒后执行返回主菜单操作
-        yield return new WaitForSeconds(delayBeforeDeath);
+        yield return new WaitForSeconds(delayBeforeDeath);  // 延迟
 
-        // 返回主菜单
-        ReturnToMainMenu();
-    }
-
-    // 返回主菜单
-    void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene(mainMenuSceneName);  // 加载主菜单场景
+        // 确保卸载完成后再加载主菜单
+        yield return new WaitForEndOfFrame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
