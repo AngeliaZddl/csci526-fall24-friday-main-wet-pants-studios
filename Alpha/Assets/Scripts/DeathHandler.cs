@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class DeathHandler : MonoBehaviour
 {
     public GameObject deathPanel;         // 死亡通知面板
-    public float delayBeforeDeath = 0.02f;   // 跳出物体后延迟时间
+    private float delayBeforeDeath = 1.5f;   // 跳出物体后延迟时间
     // public string mainMenuSceneName = "MainMenu";  // 主菜单场景的名称
 
     void Start() 

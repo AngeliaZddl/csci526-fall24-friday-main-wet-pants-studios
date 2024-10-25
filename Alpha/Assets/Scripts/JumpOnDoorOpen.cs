@@ -5,7 +5,7 @@ public class JumpOnDoorOpen : MonoBehaviour
     public bool doorOpened = false;   // 用于检测门是否已打开
     public GameObject jumpObject;
     public bool jumpObjectStatus = false;
-    private float delayBeforeAppear = 1f;  // 延迟时间，单位：秒
+    private float delayBeforeAppear = 0.8f;  // 延迟时间，单位：秒
 
     // Start is called before the first frame update
     void Start()
