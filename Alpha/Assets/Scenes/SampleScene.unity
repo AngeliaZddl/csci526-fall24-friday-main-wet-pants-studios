@@ -3213,7 +3213,6 @@ MonoBehaviour:
   doorOpened: 0
   jumpObject: {fileID: 437416171}
   jumpObjectStatus: 0
-  delayBeforeAppear: 2
 --- !u!1 &453006240
 GameObject:
   m_ObjectHideFlags: 0
@@ -7251,7 +7250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1043010993}
   player: {fileID: 453006244}
-  interactionDistance: 3.5
+  interactionDistance: 4
   statusText: {fileID: 966126489}
   passwordPanel: {fileID: 1079074123}
   obstacleLayerMask:
@@ -11453,9 +11452,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 1443223421}
-  jumpObject: {fileID: 437416171}
-  delayBeforeDeath: 3
-  mainMenuSceneName: MainMenu
 --- !u!1 &1567015573
 GameObject:
   m_ObjectHideFlags: 0
@@ -11752,7 +11748,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
