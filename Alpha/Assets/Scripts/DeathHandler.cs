@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;  // 用于场景管理
-using UnityEngine.UI;               // 用于UI控制
 
 public class DeathHandler : MonoBehaviour
 {
