@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638665642685787492
+      ticks: 638666096866438873
     m_Hash: 3136547102
   m_LockFileStatus:
     m_FilePath: E:/usc csci526/newGroup/alpha/main/csci526-fall24-friday-main-wet-pants-studios/Beta/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638665642685797464
+      ticks: 638666096866438873
     m_Hash: 2301457166
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
