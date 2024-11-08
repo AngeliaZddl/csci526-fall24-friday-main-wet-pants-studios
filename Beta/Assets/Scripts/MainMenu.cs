@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
     public static MainMenuController Instance;
 
     // 定义你想要加载的场景
-    public string gameScene = "SampleScene";
+    public string gameScene = "Level0";
 
     // 启动游戏并加载游戏场景
     public void StartGame()

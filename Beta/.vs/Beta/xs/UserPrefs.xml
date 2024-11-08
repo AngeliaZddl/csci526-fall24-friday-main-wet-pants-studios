@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{578EEFB7-C42E-0E64-E9FB-410224DD9F77}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UVLight/RevealInUVLight.shader">
+    <Files>
+      <File FileName="Assets/Scripts/MainMenu.cs" Line="11" Column="38" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/UVLight/setUVLight.cs" Line="1" Column="1" />
+      <File FileName="Assets/UVLight/RevealInUVLight.shader" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Beta" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True" />
+              <Node name="UVLight" expanded="True">
+                <Node name="RevealInUVLight.shader" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b60f539a-8cc8-4d20-9180-8e2a8999d2d4" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

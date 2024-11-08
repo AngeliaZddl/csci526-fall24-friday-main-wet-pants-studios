@@ -36,6 +36,7 @@ Shader "Custom/RevealInUVLight"
         half _Metallic;
         fixed4 _Color;
 
+        bool _LightEnabled;
         float4 _LightPosition;
         float4 _LightDirection;
         float _LightAngle;
@@ -55,8 +56,8 @@ Shader "Custom/RevealInUVLight"
             float3 direction = normalize(_LightPosition - IN.worldPos);
             float scale = dot(direction, _LightDirection);
             float strength = scale - cos(_LightAngle * (3.14 / 360));
-            strength = min(max(strength * _StrengthScale, 0), 1);
-
+            strength = _LightEnabled ? min(max(strength * _StrengthScale, 0), 1) : 0;
+            
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;

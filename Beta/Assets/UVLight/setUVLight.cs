@@ -26,6 +26,8 @@ public class SetUVLight : MonoBehaviour
 
     void Update()
     {
+        if (myLight.enabled) revealMaterial.SetInteger("_LightEnabled", 1);
+        else revealMaterial.SetInteger("_LightEnabled", 0);
         // 检查玩家是否按下控制按钮并且电量充足
         if (Input.GetKeyDown(KeyCode.F))
         {
