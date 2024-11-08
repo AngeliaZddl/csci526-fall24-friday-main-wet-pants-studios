@@ -12154,6 +12154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealMaterial: {fileID: 2100000, guid: 8ee4fab1b9fdc40f4b2bdd6e34310e04, type: 2}
   myLight: {fileID: 1275311697}
+  batteryUsagePerToggle: 20
+  autoOffTime: 10
 --- !u!108 &1275311697
 Light:
   m_ObjectHideFlags: 0
@@ -12369,6 +12371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revealMaterial: {fileID: 2100000, guid: 8ee4fab1b9fdc40f4b2bdd6e34310e04, type: 2}
   myLight: {fileID: 1332314243}
+  batteryUsagePerToggle: 20
+  autoOffTime: 10
 --- !u!108 &1332314243
 Light:
   m_ObjectHideFlags: 0
@@ -14674,6 +14678,7 @@ GameObject:
   - component: {fileID: 1583266845}
   - component: {fileID: 1583266847}
   - component: {fileID: 1583266846}
+  - component: {fileID: 1583266848}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -14757,6 +14762,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1583266848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583266844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac98135e17bfad48b618a13da7e1037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 0.1
+  shakeFrequency: 40
 --- !u!1 &1607978980
 GameObject:
   m_ObjectHideFlags: 0
