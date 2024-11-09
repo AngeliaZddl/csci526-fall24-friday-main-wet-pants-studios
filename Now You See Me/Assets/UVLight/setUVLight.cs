@@ -1,103 +1,130 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class SetUVLight : MonoBehaviour
+public class setUVLight : MonoBehaviour
 {
-    public Material revealMaterial;        // 需要更新的材质
-    public Light myLight;                  // 要控制的灯光
-    public float batteryUsagePerToggle = 20f; // 每次开启灯光消耗的电量
-    public float autoOffTime = 10f;        // 灯光自动关闭的时间（秒）
-    private float currentBattery = 100f;   // 当前电量（可以从其他地方传递进来）
+    public Material revealMaterial;         // 手电筒光照下的材质
+    public Light myLight;                   // 手电筒的光源
+    public List<GameObject> ghosts;         // 幽灵列表
+    public Slider batteryBar;               // 电池条 UI 滑动条
+    public float flashDuration = 0.1f;      // 闪光的持续时间
+    public float boostedIntensity = 20f;    // 闪光时的亮度强度
+    public float boostedSpotAngle = 60f;    // 闪光时的光照角度
+    public float boostedRange = 20f;        // 闪光时的光照范围
+    public float stopDuration = 3f;         // 幽灵暂停的时间长度
+    public float batteryDrainAmount = 25f;  // 每次闪光减少的电池量
+    public float maxBattery = 100f;         // 最大电池容量
 
-    private bool isLightOn = false;        // 初始状态为关闭
-    private Coroutine autoOffCoroutine;    // 记录当前自动关闭的协程
+    private float originalIntensity;        // 手电筒的原始亮度
+    private float originalSpotAngle;        // 手电筒的原始照射角度
+    private float originalRange;            // 手电筒的原始照射范围
+    private Color originalLightColor;       // 手电筒的原始颜色
 
     void Start()
     {
-        if (revealMaterial == null || myLight == null)
-        {
-            Debug.LogError("Reveal material or light reference is missing!");
-            enabled = false;  // 如果缺少依赖，禁用脚本
-            return;
-        }
+        // 记录手电筒的原始亮度、角度、范围和颜色
+        originalIntensity = myLight.intensity;
+        originalSpotAngle = myLight.spotAngle;
+        originalRange = myLight.range;
+        originalLightColor = myLight.color;
 
-        myLight.enabled = false;  // 游戏开始时将灯光关闭
+        // 初始化电池容量为最大值，并更新电池条 UI
+        if (batteryBar != null)
+        {
+            batteryBar.maxValue = maxBattery;
+            batteryBar.value = maxBattery;
+        }
     }
 
     void Update()
     {
-        if (myLight.enabled) revealMaterial.SetInteger("_LightEnabled", 1);
-        else revealMaterial.SetInteger("_LightEnabled", 0);
-        // 检查玩家是否按下控制按钮并且电量充足
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ToggleLight();
-        }
-
-        // 仅当灯光开启时更新材质属性
-        if (isLightOn)
-        {
-            UpdateLightProperties();
-        }
-    }
-
-    void ToggleLight()
-    {
-        if (!isLightOn && currentBattery >= batteryUsagePerToggle)
-        {
-            // 开启灯光
-            isLightOn = true;
-            myLight.enabled = true;
-
-            // 每次开启灯光时减少固定的电量
-            currentBattery -= batteryUsagePerToggle;
-            currentBattery = Mathf.Clamp(currentBattery, 0, 100); // 确保电量不会小于0
-            Debug.Log("UV Light - 当前电量: " + currentBattery);
-
-            // 启动或重置自动关闭的协程
-            if (autoOffCoroutine != null)
-            {
-                StopCoroutine(autoOffCoroutine);
-            }
-            autoOffCoroutine = StartCoroutine(AutoTurnOff());
-        }
-        else if (isLightOn)
-        {
-            // 如果灯光已开启，再次按下 "F" 键时关闭灯光
-            TurnOffLight();
-        }
-    }
-
-    IEnumerator AutoTurnOff()
-    {
-        // 等待指定的自动关闭时间
-        yield return new WaitForSeconds(autoOffTime);
-
-        // 关闭灯光
-        TurnOffLight();
-    }
-
-    void TurnOffLight()
-    {
-        // 关闭灯光并更新状态
-        isLightOn = false;
-        myLight.enabled = false;
-
-        // 停止协程
-        if (autoOffCoroutine != null)
-        {
-            StopCoroutine(autoOffCoroutine);
-            autoOffCoroutine = null;
-        }
-
-        Debug.Log("UV Light - 已自动关闭");
-    }
-
-    private void UpdateLightProperties()
-    {
-        // 设置材质的灯光相关属性
+        // 更新手电筒光照的方向和位置，用于动态效果
         revealMaterial.SetVector("_LightPosition", myLight.transform.position);
         revealMaterial.SetVector("_LightDirection", -myLight.transform.forward);
         revealMaterial.SetFloat("_LightAngle", myLight.spotAngle);
+
+        // 检测按下 F 键
+        if (Input.GetKeyDown(KeyCode.F) && batteryBar.value > 0)
+        {
+            StartCoroutine(CameraFlashEffect()); // 执行相机闪光效果
+            StopGhostsInLightRange(); // 暂停光照范围内的幽灵
+            DrainBattery(); // 减少电池容量
+        }
+
+        // 当电池电量为 0 时关闭手电筒
+        if (batteryBar.value <= 0)
+        {
+            myLight.enabled = false;
+        }
+        else
+        {
+            myLight.enabled = true;
+        }
+    }
+
+    IEnumerator CameraFlashEffect()
+    {
+        // 设置手电筒亮度、角度、范围和颜色为闪光效果
+        myLight.intensity = boostedIntensity;
+        myLight.spotAngle = boostedSpotAngle;
+        myLight.range = boostedRange;
+        myLight.color = Color.white;
+
+        // 短暂等待，模拟闪光的持续时间
+        yield return new WaitForSeconds(flashDuration);
+
+        // 恢复手电筒的原始亮度、角度、范围和颜色
+        myLight.intensity = originalIntensity;
+        myLight.spotAngle = originalSpotAngle;
+        myLight.range = originalRange;
+        myLight.color = originalLightColor;
+    }
+
+    void StopGhostsInLightRange()
+    {
+        // 遍历幽灵列表，找到在光照范围内的幽灵并暂停它们
+        foreach (GameObject ghost in ghosts)
+        {
+            if (IsGhostInLightRange(ghost))
+            {
+                StartCoroutine(PauseGhostMovement(ghost));
+            }
+        }
+    }
+
+    IEnumerator PauseGhostMovement(GameObject ghost)
+    {
+        // 获取幽灵的移动组件 (RandomBouncingMovement)
+        var movement = ghost.GetComponent<RandomBouncingMovement>();
+        if (movement != null)
+        {
+            movement.isPaused = true; // 暂停幽灵的移动
+            yield return new WaitForSeconds(stopDuration); // 让幽灵暂停 stopDuration 秒
+            movement.isPaused = false; // 恢复幽灵的移动
+        }
+    }
+
+    bool IsGhostInLightRange(GameObject ghost)
+    {
+        // 检查幽灵是否在手电筒光照范围内
+        Vector3 toGhost = ghost.transform.position - myLight.transform.position;
+        float angleToGhost = Vector3.Angle(myLight.transform.forward, toGhost);
+
+        // 判断幽灵是否在光照角度和距离范围内
+        return angleToGhost < myLight.spotAngle / 2 && toGhost.magnitude < myLight.range;
+    }
+
+    void DrainBattery()
+    {
+        // 每次使用时减少电池容量
+        batteryBar.value -= batteryDrainAmount;
+
+        // 确保电池容量不会小于 0
+        if (batteryBar.value < 0)
+        {
+            batteryBar.value = 0;
+        }
     }
 }
