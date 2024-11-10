@@ -44,7 +44,8 @@ public class setUVLight : MonoBehaviour
         revealMaterial.SetVector("_LightPosition", myLight.transform.position);
         revealMaterial.SetVector("_LightDirection", -myLight.transform.forward);
         revealMaterial.SetFloat("_LightAngle", myLight.spotAngle);
-
+        if (myLight.enabled) revealMaterial.SetInteger("_LightEnabled", 1);
+        else revealMaterial.SetInteger("_LightEnabled", 0);
         // 检测按下 F 键
         if (Input.GetKeyDown(KeyCode.F) && batteryBar.value > 0)
         {
