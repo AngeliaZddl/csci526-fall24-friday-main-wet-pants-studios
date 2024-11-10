@@ -3182,7 +3182,6 @@ GameObject:
   - component: {fileID: 349114012}
   - component: {fileID: 349114015}
   - component: {fileID: 349114016}
-  - component: {fileID: 349114017}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Ghost
@@ -3317,18 +3316,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &349114017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349114010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509bec38b5d6d45488f1a63d61dc926e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &355999869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4523,8 +4510,6 @@ GameObject:
   - component: {fileID: 453006252}
   - component: {fileID: 453006251}
   - component: {fileID: 453006250}
-  - component: {fileID: 453006256}
-  - component: {fileID: 453006257}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5178,43 +5163,6 @@ MonoBehaviour:
   range3: 20
   range4: 15
   range5: 10
---- !u!135 &453006256
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453006240}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.83
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &453006257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453006240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5880474a7a77634f9882da7d82690b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSanity: {fileID: 453006248}
-  kevinCameraShake: {fileID: 1583266848}
-  jumpScareObject: {fileID: 437416171}
-  ghostBackScript: {fileID: 349114017}
 --- !u!1 &459343372
 GameObject:
   m_ObjectHideFlags: 0
@@ -15573,11 +15521,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583266844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee1e53ca34a98924d926c2ffbaef9d61, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac98135e17bfad48b618a13da7e1037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeMagnitude: 0.2
-  isShaking: 0
+  shakeIntensity: 0.1
+  shakeFrequency: 40
 --- !u!1 &1607978980
 GameObject:
   m_ObjectHideFlags: 0

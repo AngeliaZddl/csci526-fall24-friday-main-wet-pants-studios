@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//这个代码别用了 
 public class CameraShake : MonoBehaviour
 {
     public float shakeIntensity = 0.5f; // 抖动强度
