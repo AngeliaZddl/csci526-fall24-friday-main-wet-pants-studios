@@ -13097,7 +13097,7 @@ MonoBehaviour:
   boostedIntensity: 4
   boostedSpotAngle: 170
   boostedRange: 10
-  stopDuration: 3
+  stopDuration: 5
   batteryDrainAmount: 10
   maxBattery: 100
 --- !u!108 &1332314243

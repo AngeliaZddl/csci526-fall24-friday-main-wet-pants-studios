@@ -2524,6 +2524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSanity: {fileID: 453006248}
+  kevinCameraShake: {fileID: 0}
+  jumpScareObject: {fileID: 0}
+  ghostBackScript: {fileID: 0}
 --- !u!135 &349114018
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6293,13 +6296,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856754483}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.62, y: 0.97, z: 0.01}
-  m_LocalScale: {x: 6, y: 1, z: 5.5149918}
+  m_LocalRotation: {x: -0.009883519, y: 0.022252705, z: 0.033986572, w: 0.9991257}
+  m_LocalPosition: {x: 17.8, y: -1.25, z: 0.37}
+  m_LocalScale: {x: 7.0052257, y: 1, z: 5.6399198}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.218, y: 2.511, z: 3.87}
 --- !u!54 &856754489
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7102,7 +7105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1000419823
 Transform:
   m_ObjectHideFlags: 0
@@ -7973,7 +7976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1043010992
 Transform:
   m_ObjectHideFlags: 0
@@ -11600,7 +11603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567015574
 Transform:
   m_ObjectHideFlags: 0

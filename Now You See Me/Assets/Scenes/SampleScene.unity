@@ -6488,8 +6488,8 @@ Transform:
   m_GameObject: {fileID: 856754483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.62, y: 0.97, z: 0.01}
-  m_LocalScale: {x: 6, y: 1, z: 5.5149918}
+  m_LocalPosition: {x: 16.6494, y: 0.43, z: -0.8285}
+  m_LocalScale: {x: 5.701163, y: 1, z: 5.189362}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7430,7 +7430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1000419823
 Transform:
   m_ObjectHideFlags: 0
@@ -8301,7 +8301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1043010992
 Transform:
   m_ObjectHideFlags: 0
@@ -10128,12 +10128,12 @@ MonoBehaviour:
   ghosts:
   - {fileID: 349114010}
   batteryBar: {fileID: 124817185}
-  flashDuration: 0.1
+  flashDuration: 0.4
   boostedIntensity: 4
   boostedSpotAngle: 170
   boostedRange: 10
   stopDuration: 3
-  batteryDrainAmount: 1
+  batteryDrainAmount: 25
   maxBattery: 100
 --- !u!108 &1332314243
 Light:
@@ -11853,7 +11853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1567015574
 Transform:
   m_ObjectHideFlags: 0
