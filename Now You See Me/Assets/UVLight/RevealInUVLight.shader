@@ -57,6 +57,10 @@ Shader "Custom/RevealInUVLight"
             float scale = dot(direction, _LightDirection);
             float strength = scale - cos(_LightAngle * (3.14 / 360));
             strength = _LightEnabled ? min(max(strength * _StrengthScale, 0), 1) : 0;
+            float distance = length(_LightPosition - IN.worldPos);
+
+            // strength fall off 
+            strength = strength * (1/(1+exp(10*(distance-24.5))));
             
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
