@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-public class RandomBouncingMovement : MonoBehaviour
+public class RandomBouncingMovement : MonoBehaviour, IGhostController
 {
     public float moveSpeed = 5f; // 移动速度
     private Vector3 moveDirection;
@@ -57,5 +58,18 @@ public class RandomBouncingMovement : MonoBehaviour
             // 根据碰撞的法线反射方向
             moveDirection = Vector3.Reflect(moveDirection, collision.contacts[0].normal);
         }
+    }
+
+    // Implement the IGhostController interface to allow UVLightMechanics to stun this ghost
+    public void Stun(float duration)
+    {
+        StartCoroutine(PauseMovement(duration));
+    }
+
+    private IEnumerator PauseMovement(float duration)
+    {
+        isPaused = true;
+        yield return new WaitForSeconds(duration);
+        isPaused = false;
     }
 }
