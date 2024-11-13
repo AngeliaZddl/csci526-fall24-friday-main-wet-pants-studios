@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class victoryCheck : MonoBehaviour
@@ -21,17 +21,18 @@ public class victoryCheck : MonoBehaviour
 
 
 
-            Invoke("QuitGame", 1f);
+            Invoke("NextLevel", 1f);
         }
     }
 
-    void QuitGame()
+    void NextLevel()
     {
         //Debug.Log("Quitting the game...");
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #else
-                Application.Quit();
-        #endif
+        // #if UNITY_EDITOR
+        //         UnityEditor.EditorApplication.isPlaying = false;
+        // #else
+        //         Application.Quit();
+        // #endif
+        SceneManager.LoadScene("Level1");
     }
 }
