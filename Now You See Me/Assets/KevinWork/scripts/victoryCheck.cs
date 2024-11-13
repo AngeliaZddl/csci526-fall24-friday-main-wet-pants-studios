@@ -23,9 +23,6 @@ public class victoryCheck : MonoBehaviour
             // 计算通关所用时间
             float completionTime = Time.time - startTime;
 
-            // 发送自定义事件到 Unity Analytics
-            Analytics.CustomEvent("LevelComplete", new Dictionary<string, object>
-            {
                 { "levelName", "Level 1" },         // 当前关卡名称（根据需要修改）
                 { "completionTime", completionTime } // 通关时间（单位：秒）
             });
@@ -40,7 +37,7 @@ public class victoryCheck : MonoBehaviour
         }
     }
 
-    void QuitGame()
+    void NextLevel()
     {
         // 停止游戏
 #if UNITY_EDITOR
