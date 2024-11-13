@@ -4703,6 +4703,9 @@ MonoBehaviour:
   speed: 5
   mouseSensitivity: 2
   playerCamera: {fileID: 1583266845}
+  moveAllowed: 1
+  turnAllowed: 1
+  totalDistanceMoved: 0
 --- !u!143 &453006246
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4747,6 +4750,7 @@ MonoBehaviour:
   maxSanity: 100
   textUI: {fileID: 418985486}
   sanityBarController: {fileID: 1927825241}
+  deathCount: 0
 --- !u!82 &453006250
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15469,7 +15473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1043010993}
-  player: {fileID: 453006244}
+  playerTag: Player
+  ghostTag: Ghost
   interactionDistance: 3
   victoryCanvas: {fileID: 1859897400}
   statusKey: {fileID: 966126489}
@@ -17800,7 +17805,7 @@ GameObject:
   - component: {fileID: 1899958007}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
