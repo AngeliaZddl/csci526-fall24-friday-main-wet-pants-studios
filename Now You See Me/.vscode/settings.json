@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Beta.sln"
+    "dotnet.defaultSolution": "Now You See Me.sln"
 }

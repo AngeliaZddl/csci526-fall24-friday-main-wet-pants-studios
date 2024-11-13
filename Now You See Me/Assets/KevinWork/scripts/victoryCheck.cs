@@ -17,7 +17,7 @@ public class victoryCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            victoryCanvas.SetActive(true); // ��ʾʤ���� Canvas
+            victoryCanvas.SetActive(true); // 
 
 
 
@@ -35,4 +35,3 @@ public class victoryCheck : MonoBehaviour
         #endif
     }
 }
-
