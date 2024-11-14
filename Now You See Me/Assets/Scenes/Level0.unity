@@ -12262,12 +12262,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567015573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab23195dbed442bfb772e627dd906b7, type: 3}
+  m_Script: {fileID: 11500000, guid: fc6eaf1b956f2bf4d8fa8699101a7ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1043010993}
-  playerTag: Player
-  ghostTag: Ghost
+  player: {fileID: 453006244}
   interactionDistance: 4
   victoryCanvas: {fileID: 1859897400}
   statusKey: {fileID: 966126489}
