@@ -4117,6 +4117,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1583266845}
   moveAllowed: 1
   turnAllowed: 1
+  totalDistanceMoved: 0
 --- !u!143 &453006246
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4161,6 +4162,7 @@ MonoBehaviour:
   maxSanity: 100
   textUI: {fileID: 418985486}
   sanityBarController: {fileID: 1124198676}
+  deathCount: 0
 --- !u!135 &453006249
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4197,7 +4199,7 @@ MonoBehaviour:
   playerSanity: {fileID: 453006248}
   kevinCameraShake: {fileID: 1583266848}
   jumpScareObject: {fileID: 437416171}
-  ghostBackScript: {fileID: 349114019}
+  colorBar: {fileID: 4122471374600840612}
 --- !u!1 &459343372
 GameObject:
   m_ObjectHideFlags: 0
@@ -13273,7 +13275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1043010993}
-  player: {fileID: 453006244}
+  playerTag: Player
+  ghostTag: Ghost
   interactionDistance: 3
   victoryCanvas: {fileID: 1859897400}
   statusKey: {fileID: 966126489}
@@ -16828,15 +16831,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627294170430804444, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
       propertyPath: m_Color.b
-      value: 0.20334388
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8627294170430804444, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
       propertyPath: m_Color.g
-      value: 0.07450979
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8627294170430804444, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
       propertyPath: m_Color.r
-      value: 0.9137255
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16846,6 +16849,11 @@ PrefabInstance:
       addedObject: {fileID: 327546631}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
+--- !u!1 &4122471374600840612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2518090487680364807, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
+  m_PrefabInstance: {fileID: 4122471374600840611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5046157607629986063
 PrefabInstance:
   m_ObjectHideFlags: 0
