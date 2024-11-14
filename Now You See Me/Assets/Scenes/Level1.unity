@@ -10207,7 +10207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &856754484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10301,7 +10301,7 @@ Transform:
   m_GameObject: {fileID: 856754483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.62, y: 0.97, z: 0.01}
+  m_LocalPosition: {x: 25.91, y: 0.97, z: 0.01}
   m_LocalScale: {x: 6, y: 1, z: 5.5149918}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11497,7 +11497,7 @@ Transform:
   m_GameObject: {fileID: 1000419822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6937311, z: -0, w: 0.7202341}
-  m_LocalPosition: {x: 12.26, y: 2.66, z: -1.71}
+  m_LocalPosition: {x: 12.459, y: 2.521, z: -1.717}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11520,11 +11520,9 @@ MonoBehaviour:
   player: {fileID: 453006244}
   interactionDistance: 4
   statusText: {fileID: 966126489}
-  passwordPanel: {fileID: 1079074123}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  puzzleScript: {fileID: 1079074124}
 --- !u!65 &1000419825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12881,7 +12879,6 @@ MonoBehaviour:
   firDigit: {fileID: 298768774}
   secDigit: {fileID: 404749512}
   thiDigit: {fileID: 875489700}
-  elevatorButtonControl: {fileID: 1000419824}
 --- !u!114 &1079074125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18088,7 +18085,7 @@ Transform:
   m_GameObject: {fileID: 1567015573}
   serializedVersion: 2
   m_LocalRotation: {x: 0.022003006, y: 0.7073486, z: -0.022211656, w: 0.7061732}
-  m_LocalPosition: {x: 12.888, y: 1.776, z: 1.831}
+  m_LocalPosition: {x: 12.764, y: 2.02, z: 1.831}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18181,7 +18178,7 @@ MonoBehaviour:
   doorAnimator: {fileID: 1043010993}
   playerTag: Player
   ghostTag: Ghost
-  interactionDistance: 3
+  interactionDistance: 5
   victoryCanvas: {fileID: 1859897400}
   statusKey: {fileID: 966126489}
   obstacleLayerMask:

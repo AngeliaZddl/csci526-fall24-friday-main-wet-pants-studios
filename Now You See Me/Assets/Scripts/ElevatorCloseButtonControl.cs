@@ -31,9 +31,9 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 
     async void Start()
     {
-        await UnityServices.InitializeAsync();  // µÈ´ý Analytics ·þÎñ³õÊ¼»¯Íê³É
+        await UnityServices.InitializeAsync();  // ï¿½È´ï¿½ Analytics ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        // Æô¶¯Êý¾ÝÊÕ¼¯£¨¼ÙÉèÍæ¼ÒÒÑÍ¬ÒâÊý¾ÝÊÕ¼¯£©
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½
         AnalyticsService.Instance.StartDataCollection();
 
         time2clearlevel = 0.0f;  // Start timer for level clear event
@@ -62,9 +62,9 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 
         if (distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
-            UpdateStatusText("Press F to close door");
+            UpdateStatusText("Press E to close door");
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 CloseDoorAndTriggerVictory();
             }

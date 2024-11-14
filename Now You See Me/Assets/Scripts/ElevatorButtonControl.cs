@@ -3,77 +3,42 @@ using TMPro;
 
 public class ElevatorButtonControl : MonoBehaviour
 {
-    public Animator doorAnimator;  // 用于控制电梯门的动画
-    public Transform player;       // 玩家对象
-    public float interactionDistance = 3f;  // 玩家与按钮的交互距离
-    private bool isDoorOpen = false;  // 电梯门是否已经打开
-    public TMP_Text statusText;  // UI文本提示
-    public GameObject passwordPanel;  // 密码输入面板UI
-    public LayerMask obstacleLayerMask;  // 用于检测是否有障碍物
-    public Puzzle puzzleScript;  // 引用 Puzzle 脚本
-
-    private bool isInteracting = false;  // 是否处于交互状态
+    public Animator doorAnimator;  // Controls the elevator door animation
+    public Transform player;       // Player object
+    public float interactionDistance = 3f;  // Interaction distance for the player and button
+    private bool isDoorOpen = false;  // Track whether the door is open
+    public TMP_Text statusText;  // UI text prompt for interaction
+    public LayerMask obstacleLayerMask;  // Layer mask to detect obstacles
 
     void Start()
     {
-        passwordPanel.SetActive(false);  // 隐藏密码面板
-        statusText.enabled = false;  // 隐藏状态提示
-
-        // 启动时锁定并隐藏鼠标
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        statusText.enabled = false;  // Hide the status text initially
     }
 
     void Update()
     {
-        // 计算玩家与按钮的距离
+        // Calculate the distance between the player and the button
         float distance = Vector3.Distance(player.position, transform.position);
 
-        // 如果电梯门未打开且玩家在交互距离内且没有障碍物，则允许打开UI
+        // If the door is not open, the player is within interaction distance, and there’s no obstacle, show the prompt
         if (!isDoorOpen && distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
-            Debug.Log("isInteracting: "+ isInteracting);
-            if (!isInteracting)
-            {
-                statusText.text = "Press F to enter password";
-                statusText.enabled = true;
+            statusText.text = "Press E to open the door";  // Set interaction text
+            statusText.enabled = true;  // Enable the prompt
 
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    OpenPasswordPanel();  // 显示密码面板
-                }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                OpenDoor();  // Open the door when F is pressed
             }
         }
         else
         {
-            statusText.enabled = false;  // 当超出距离时隐藏提示
-        }
-
-        //// 检测玩家是否按下 Enter 键来提交密码  抽象写法 别这么干了
-        //if (passwordPanel.activeSelf && Input.GetKeyDown(KeyCode.Return))
-        //{
-        //    puzzleScript.Submit();  // 调用 Puzzle 的 Submit 方法来验证密码
-        //}
-    }
-
-    // 打开密码输入面板
-    private void OpenPasswordPanel()
-    {
-        if (!isDoorOpen)  // Only open the panel if the door is not opened yet
-        {
-            isInteracting = true;  // 标记为交互状态
-            passwordPanel.SetActive(true);  // 显示密码面板
-            statusText.enabled = false;  // 隐藏提示
-
-            // 解锁鼠标并显示
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            statusText.enabled = false;  // Hide the prompt when out of range or if the door is open
         }
     }
+    
 
-
-
-    // 检查玩家与按钮之间是否有障碍物
+    // Checks for obstacles between the player and the button
     bool IsObstacleBetweenPlayerAndButton()
     {
         Vector3 directionToButton = (transform.position - player.position).normalized;
@@ -81,33 +46,20 @@ public class ElevatorButtonControl : MonoBehaviour
 
         if (Physics.Raycast(player.position, directionToButton, distanceToButton, obstacleLayerMask))
         {
-            return true;  // 检测到障碍物
+            return true;  // Obstacle detected
         }
 
-        return false;  // 无障碍物，允许交互
+        return false;  // No obstacles, interaction allowed
     }
 
-    // 打开电梯门
+    // Opens the elevator door
     public void OpenDoor()
     {
         if (!isDoorOpen)
         {
             doorAnimator.SetTrigger("Open");
-            isDoorOpen = true;
-            ClosePasswordPanel();  // 关闭密码面板
+            isDoorOpen = true;  // Mark the door as open to prevent reactivation
+            statusText.enabled = false;  // Hide the prompt after the door opens
         }
     }
-
-    // 关闭密码面板并重置交互状态
-    public void ClosePasswordPanel()
-    {
-        isInteracting = false;  // 重置交互状态
-        passwordPanel.SetActive(false);  // 隐藏密码面板
-
-        // 锁定并隐藏鼠标
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-
 }

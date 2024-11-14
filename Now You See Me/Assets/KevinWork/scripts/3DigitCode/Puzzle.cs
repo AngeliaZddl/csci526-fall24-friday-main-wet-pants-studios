@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro; 
+using TMPro;
 
 public class Puzzle : MonoBehaviour
 {
@@ -13,8 +12,6 @@ public class Puzzle : MonoBehaviour
     public TextMeshProUGUI firDigit;
     public TextMeshProUGUI secDigit;
     public TextMeshProUGUI thiDigit;
-
-    public ElevatorButtonControl elevatorButtonControl;
 
     private void Update()
     {
@@ -44,9 +41,8 @@ public class Puzzle : MonoBehaviour
         // Check if the entered digits match the correct password (3-4-8)
         if (firNum == 3 && secNum == 4 && thiNum == 8)
         {
-            Debug.Log("密码正确，打开电梯门！");
-            ElevatorButtonControl elevatorControl = FindObjectOfType<ElevatorButtonControl>();
-            elevatorControl.OpenDoor();  // Call ElevatorButtonControl's OpenDoor method
+            Debug.Log("密码正确！");
+            // Add any logic here to indicate success, such as triggering an event or playing a sound
             Close();  // Close the puzzle UI
         }
         else
@@ -62,7 +58,5 @@ public class Puzzle : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;  // Lock the cursor to the center of the screen
         Cursor.visible = false;  // Hide the cursor
         Close();  // Close the UI
-        //修改点
-        elevatorButtonControl.ClosePasswordPanel();
     }
 }
