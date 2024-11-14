@@ -21,6 +21,10 @@ public class GhostController : MonoBehaviour, IGhostController
     public float minZ = -50f;
     public float maxZ = 50f;
 
+    // for Tutorialization (level 0)
+    public bool tuto = false;
+    public bool moveAllowed = false;
+
     private Rigidbody rb;
     private bool isPaused = false;
 
@@ -31,6 +35,8 @@ public class GhostController : MonoBehaviour, IGhostController
 
     // Light variables
     private Light ghostLight;                // Reference to the ghost's light component
+
+
 
     void Start()
     {
@@ -62,16 +68,27 @@ public class GhostController : MonoBehaviour, IGhostController
             // Calculate distance between the ghost and the player
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-            if (distanceToPlayer <= chaseRange)
+            if(tuto)
             {
-                // Chase the player
-                ChasePlayer();
+                if(moveAllowed)
+                {
+                    ChasePlayer();
+                }
             }
             else
             {
-                // Move randomly
-                RandomMovement();
+                if (distanceToPlayer <= chaseRange)
+                {
+                    // 追逐玩家
+                    ChasePlayer();
+                }
+                else
+                {
+                    // 随机移动
+                    RandomMovement();
+                }
             }
+
         }
     }
 
@@ -199,6 +216,23 @@ public class GhostController : MonoBehaviour, IGhostController
         if (ghostLight != null)
         {
             ghostLight.enabled = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(tuto)
+        {
+            if(collision.gameObject.CompareTag("Player"))
+            {
+                GameObject tc = GameObject.Find("TutoController");
+                if (tc)
+                {
+                    TutoController tcs = tc.GetComponent<TutoController>();
+                    tcs.trigger4();
+                }
+            }
+
         }
     }
 }
