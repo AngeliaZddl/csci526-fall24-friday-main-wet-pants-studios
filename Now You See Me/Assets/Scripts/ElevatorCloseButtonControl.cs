@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
+using System.Threading.Tasks;
 
 public class ElevatorCloseButtonControl : MonoBehaviour
 {
@@ -28,9 +29,13 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 
     private PlayerSanity playerSanity;  // Reference to PlayerSanity script
 
-    void Start()
+    async void Start()
     {
-        UnityServices.InitializeAsync();  // Analytics service start
+        await UnityServices.InitializeAsync();  // 等待 Analytics 服务初始化完成
+
+        // 启动数据收集（假设玩家已同意数据收集）
+        AnalyticsService.Instance.StartDataCollection();
+
         time2clearlevel = 0.0f;  // Start timer for level clear event
         victoryCanvas.SetActive(false);  // Ensure the victoryCanvas is initially hidden
 
