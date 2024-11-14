@@ -52,9 +52,19 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     {
         time2clearlevel += Time.deltaTime;  // Increment timer for time2clearlevel event
 
-        // Calculate distance between player and ghost
-        float distanceToGhost = Vector3.Distance(player.transform.position, ghost.transform.position);
+        // Calculate distance between player and ghost 我开始修改这一块 Kevin add if statement
+        //float distanceToGhost = Vector3.Distance(player.transform.position, ghost.transform.position);
+        //totalDistanceToGhost += distanceToGhost;
+        //
+        float distanceToGhost = 0;
+
+        if (ghost != null)
+        {
+            distanceToGhost = Vector3.Distance(player.transform.position, ghost.transform.position);
+        }
         totalDistanceToGhost += distanceToGhost;
+
+
         frameCount++;
 
         // Use Raycast to check if there is an obstacle between the player and the button
