@@ -9898,6 +9898,7 @@ MonoBehaviour:
   myLight: {fileID: 1332314243}
   ghosts:
   - {fileID: 349114010}
+  - {fileID: 1971987563}
   batteryBar: {fileID: 829061490}
   flashDuration: 0.1
   boostedIntensity: 4
