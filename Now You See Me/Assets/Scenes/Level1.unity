@@ -3507,7 +3507,7 @@ GameObject:
   - component: {fileID: 322851495}
   - component: {fileID: 322851494}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: Ghost22
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15179,6 +15179,8 @@ MonoBehaviour:
   myLight: {fileID: 1332314243}
   ghosts:
   - {fileID: 349114010}
+  - {fileID: 322851492}
+  - {fileID: 1562790137}
   batteryBar: {fileID: 2086214159}
   flashDuration: 0.4
   boostedIntensity: 4
@@ -17836,7 +17838,7 @@ GameObject:
   - component: {fileID: 1562790140}
   - component: {fileID: 1562790139}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: Ghost33
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
