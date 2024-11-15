@@ -1177,7 +1177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &86491520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22680,7 +22680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 946591719593532397, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1991415559122690700, guid: 7572a914cabbd394884de262bd6869cc, type: 3}
       propertyPath: m_Pivot.x
