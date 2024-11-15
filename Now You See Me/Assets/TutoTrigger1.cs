@@ -24,7 +24,7 @@ public class TutoTrigger1 : MonoBehaviour
         if(activated)
         {
             //Debug.Log(Vector3.Dot(orig, player.transform.forward));
-            if(Vector3.Dot(orig, player.transform.forward) < -0.9)
+            if(Vector3.Dot(orig, player.transform.forward) < -0.5)
             {
                 activated = false;
                 tc.trigger1Turned();
