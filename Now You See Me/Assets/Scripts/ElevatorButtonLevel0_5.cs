@@ -4,6 +4,7 @@ using System.Collections;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class ElevatorButtonLevel0_5 : MonoBehaviour
 {
@@ -119,7 +120,7 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(lc);
         Debug.Log("Event sent: time2clear_0_5 = " + time2clearlevel + ", totalDistanceMoved_0_5 = " + playerMovement.totalDistanceMoved + ", averageDistanceToGhost_0_5 = " + averageDistanceToGhost + ", deathCount_0_5 = " + senceHalfDeathRecord.GetDeathCount());
 
-        Invoke("QuitGame", 2f);
+        Invoke("Nextlevel", 2f);
     }
 
     void ShowVictoryUI()
@@ -127,14 +128,22 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
         victoryCanvas.SetActive(true);
     }
 
-    void QuitGame()
+    void Nextlevel()
     {
-        Debug.Log("Quitting the game...");
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        //Debug.Log("Quitting the game...");
+// #if UNITY_EDITOR
+//                 UnityEditor.EditorApplication.isPlaying = false;
+// #else
+//         Application.Quit();
+// #endif
+
+        if(SceneManager.GetActiveScene().name == "Level0") {
+            SceneManager.LoadScene("Level0.5");
+        } else if (SceneManager.GetActiveScene().name == "Level0.5") {
+            SceneManager.LoadScene("Level1");
+        } else {
+            Application.Quit();
+        }
     }
 
     void UpdateStatusText(string message)

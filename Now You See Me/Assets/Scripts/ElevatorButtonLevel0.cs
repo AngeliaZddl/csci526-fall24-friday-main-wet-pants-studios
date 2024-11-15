@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ElevatorButtonLevel0 : MonoBehaviour
 {
@@ -88,7 +89,7 @@ public class ElevatorButtonLevel0 : MonoBehaviour
         ShowVictoryUI();
 
         // Quit the game after a short delay (2 seconds)
-        Invoke("QuitGame", 2f);
+        Invoke("Nextlevel", 2f);
     }
 
     // Function to show the victory UI
@@ -98,15 +99,22 @@ public class ElevatorButtonLevel0 : MonoBehaviour
     }
 
     // Function to quit the game
-    void QuitGame()
+    void Nextlevel()
     {
-        Debug.Log("Quitting the game...");
+        //Debug.Log("Quitting the game...");
+// #if UNITY_EDITOR
+//                 UnityEditor.EditorApplication.isPlaying = false;
+// #else
+//         Application.Quit();
+// #endif
 
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;  // Stop play mode in the Unity Editor
-#else
-        Application.Quit();  // Quit the application in a build
-#endif
+        if(SceneManager.GetActiveScene().name == "Level0") {
+            SceneManager.LoadScene("Level0.5");
+        } else if (SceneManager.GetActiveScene().name == "Level0.5") {
+            SceneManager.LoadScene("Level1");
+        } else {
+            Application.Quit();
+        }
     }
 
     // Optional: Update the status text for better flexibility

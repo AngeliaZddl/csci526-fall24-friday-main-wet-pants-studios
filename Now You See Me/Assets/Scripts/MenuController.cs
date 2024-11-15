@@ -84,6 +84,18 @@ public class MenuController : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        SceneManager.LoadScene("Level0.5");
+    }
+
+    public void LoadLevel2()
+    {
+        // 恢复时间
+        Time.timeScale = 1f;
+
+        // 隐藏并锁定鼠标光标
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         SceneManager.LoadScene("Level1");
     }
 
