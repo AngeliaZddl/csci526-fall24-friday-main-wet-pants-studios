@@ -22,34 +22,15 @@ public class PlayerSanity : MonoBehaviour
     {
         playerSanity -= (sanityDecline + additionalDecline) * Time.deltaTime;
 
-        if (playerSanity <= 0)
-        {
-            // Player dies
-            playerSanity = 0;
-            deathCount++;  // Increment death count
-            HandleDeath();  // Call the method to handle player death
-        }
     }
 
     public void directlyLoseSanity()
     {
         playerSanity -= 10;
 
-        if (playerSanity <= 0)
-        {
-            // Player dies
-            playerSanity = 0;
-            deathCount++;  // Increment death count
-            HandleDeath();  // Call the method to handle player death
-        }
     }
 
-    private void HandleDeath()
-    {
-        // Handle the death event (e.g., trigger respawn, show death screen, etc.)
-        Debug.Log("Player has died! Death count: " + deathCount);
-        // Optionally reset sanity or trigger game over logic
-    }
+
 
     // Update is called once per frame
     void Update()
