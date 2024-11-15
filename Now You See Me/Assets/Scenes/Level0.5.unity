@@ -18615,19 +18615,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567015573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab23195dbed442bfb772e627dd906b7, type: 3}
+  m_Script: {fileID: 11500000, guid: b9adb4802862bbc48bd1c37639d17da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1043010993}
   playerTag: Player
   ghostTag: Ghost
-  interactionDistance: 5
+  interactionDistance: 3
   victoryCanvas: {fileID: 1859897400}
   statusKey: {fileID: 966126489}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
   messageDisplayDuration: 3
+  senceHalfDeathRecord: {fileID: 453006259}
 --- !u!1001 &1572525121
 PrefabInstance:
   m_ObjectHideFlags: 0

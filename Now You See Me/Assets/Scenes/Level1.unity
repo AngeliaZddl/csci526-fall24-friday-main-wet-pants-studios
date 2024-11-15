@@ -18205,6 +18205,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   messageDisplayDuration: 3
+  senceOneDeathRecord: {fileID: 453006259}
 --- !u!1001 &1572525121
 PrefabInstance:
   m_ObjectHideFlags: 0

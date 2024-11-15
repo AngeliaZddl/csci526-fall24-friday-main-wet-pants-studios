@@ -5,7 +5,7 @@ using Unity.Services.Analytics;
 using Unity.Services.Core;
 using System.Threading.Tasks;
 
-public class ElevatorCloseButtonControl : MonoBehaviour
+public class ElevatorButtonLevel0_5 : MonoBehaviour
 {
     public Animator doorAnimator;  // Animator for controlling the elevator door
     public string playerTag = "Player"; // Tag for the Player
@@ -28,13 +28,13 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     private GameObject ghost;  // Reference to the Ghost object
 
     private PlayerSanity playerSanity;  // Reference to PlayerSanity script
-    public SenceOneDeathRecord senceOneDeathRecord;
+    public SenceHalfDeathRecord senceHalfDeathRecord;
 
     async void Start()
     {
-        await UnityServices.InitializeAsync();  // �ȴ� Analytics �����ʼ�����
+        await UnityServices.InitializeAsync();  // Wait for Analytics service to initialize
 
-        // ���������ռ������������ͬ�������ռ���
+        // Start data collection for analytics
         AnalyticsService.Instance.StartDataCollection();
 
         time2clearlevel = 0.0f;  // Start timer for level clear event
@@ -53,10 +53,7 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     {
         time2clearlevel += Time.deltaTime;  // Increment timer for time2clearlevel event
 
-        // Calculate distance between player and ghost 我开始修改这一块 Kevin add if statement
-        //float distanceToGhost = Vector3.Distance(player.transform.position, ghost.transform.position);
-        //totalDistanceToGhost += distanceToGhost;
-        //
+        // Calculate distance between player and ghost
         float distanceToGhost = 0;
 
         if (ghost != null)
@@ -64,7 +61,6 @@ public class ElevatorCloseButtonControl : MonoBehaviour
             distanceToGhost = Vector3.Distance(player.transform.position, ghost.transform.position);
         }
         totalDistanceToGhost += distanceToGhost;
-
 
         frameCount++;
 
@@ -113,15 +109,15 @@ public class ElevatorCloseButtonControl : MonoBehaviour
         float averageDistanceToGhost = totalDistanceToGhost / frameCount;
 
         // Send analytics event with time to clear, average distance to ghost, and death count
-        levelClear lc = new levelClear
+        level0_5Clear lc = new level0_5Clear
         {
-            time2clear = time2clearlevel,
-            totalDistanceMoved = playerMovement.totalDistanceMoved,
-            averageDistanceToGhost = averageDistanceToGhost,
-            deathCount = senceOneDeathRecord.GetDeathCount() // Send the death count as part of the analytics
+            time2clear_0_5 = time2clearlevel,
+            totalDistanceMoved_0_5 = playerMovement.totalDistanceMoved,
+            averageDistanceToGhost_0_5 = averageDistanceToGhost,
+            deathCount_0_5 = senceHalfDeathRecord.GetDeathCount() // Send the death count as part of the analytics
         };
         AnalyticsService.Instance.RecordEvent(lc);
-        Debug.Log("Event sent: time2clear = " + time2clearlevel + ", totalDistanceMoved = " + playerMovement.totalDistanceMoved + ", averageDistanceToGhost = " + averageDistanceToGhost + ", deathCount = " + senceOneDeathRecord.GetDeathCount());
+        Debug.Log("Event sent: time2clear_0_5 = " + time2clearlevel + ", totalDistanceMoved_0_5 = " + playerMovement.totalDistanceMoved + ", averageDistanceToGhost_0_5 = " + averageDistanceToGhost + ", deathCount_0_5 = " + senceHalfDeathRecord.GetDeathCount());
 
         Invoke("QuitGame", 2f);
     }
@@ -163,14 +159,14 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     }
 }
 
-public class levelClear : Unity.Services.Analytics.Event
+public class level0_5Clear : Unity.Services.Analytics.Event
 {
-    public levelClear() : base("levelClear")
+    public level0_5Clear() : base("level0_5Clear")
     {
     }
 
-    public float time2clear { set { SetParameter("time2clear", value); } }
-    public float totalDistanceMoved { set { SetParameter("totalDistanceMoved", value); } }
-    public float averageDistanceToGhost { set { SetParameter("averageDistanceToGhost", value); } }
-    public int deathCount { set { SetParameter("deathCount", value); } }  // Add deathCount parameter
+    public float time2clear_0_5 { set { SetParameter("time2clear_0_5", value); } }
+    public float totalDistanceMoved_0_5 { set { SetParameter("totalDistanceMoved_0_5", value); } }
+    public float averageDistanceToGhost_0_5 { set { SetParameter("averageDistanceToGhost_0_5", value); } }
+    public int deathCount_0_5 { set { SetParameter("deathCount_0_5", value); } }  // Add deathCount_0_5 parameter
 }
