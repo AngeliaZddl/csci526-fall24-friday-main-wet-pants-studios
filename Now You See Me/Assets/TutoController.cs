@@ -49,8 +49,8 @@ public class TutoController : MonoBehaviour
     void turnPlayer(int tries)
     {
         turnTries++;
-        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, target, 0.01f);
-        if (tries > 1000 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
+        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, target, 0.5f);
+        if (tries > 500 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
         {
             playerTurned = true;
             playerCamera.transform.rotation *= Quaternion.Euler(Vector3.left * -10);
@@ -77,10 +77,14 @@ public class TutoController : MonoBehaviour
     void learnMove()
     {
         if (Input.GetKeyDown(KeyCode.W)) wPressed = true;
-        if (Input.GetKeyDown(KeyCode.A)) aPressed = true;
-        if (Input.GetKeyDown(KeyCode.S)) sPressed = true;
-        if (Input.GetKeyDown(KeyCode.D)) dPressed = true;
-        if (wPressed && aPressed && sPressed && dPressed)
+        //if (Input.GetKeyDown(KeyCode.A)) aPressed = true;
+        //if (Input.GetKeyDown(KeyCode.S)) sPressed = true;
+        //if (Input.GetKeyDown(KeyCode.D)) dPressed = true;
+        if (wPressed
+            /*
+            && aPressed && sPressed && dPressed
+            */
+            )
         {
             moveLearned = true;
             moveTutoWall.SetActive(false);
