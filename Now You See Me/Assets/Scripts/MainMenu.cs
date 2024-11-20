@@ -8,15 +8,29 @@ public class MainMenuController : MonoBehaviour
     public static MainMenuController Instance;
 
     // 定义你想要加载的场景
-    public string gameScene = "Level0";
+    public string gameScene1 = "Level0";
+    public string gameScene2 = "Level0.5";
+    public string gameScene3 = "Level1";
+    
 
     // 启动游戏并加载游戏场景
-    public void StartGame()
+    public void Totu()
     {
         Debug.Log("Loading SampleScene...");
-        SceneManager.LoadScene(gameScene);  // 加载 SampleScene
+        SceneManager.LoadScene(gameScene1);  // 加载 SampleScene
     }
 
+    public void Level1()
+        {
+            Debug.Log("Loading SampleScene...");
+            SceneManager.LoadScene(gameScene2);  // 加载 SampleScene
+        }
+
+    public void Level2()
+    {
+        Debug.Log("Loading SampleScene...");
+        SceneManager.LoadScene(gameScene3);  // 加载 SampleScene
+    }
     // 退出游戏
     public void QuitGame()
     {

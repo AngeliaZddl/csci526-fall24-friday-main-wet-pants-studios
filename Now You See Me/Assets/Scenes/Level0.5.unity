@@ -2976,7 +2976,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 44179077}
-  menuOnScreen: {fileID: 2015492123}
   isMenuActive: 0
 --- !u!4 &242717565
 Transform:
@@ -22403,7 +22402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2015492124
 RectTransform:
   m_ObjectHideFlags: 0
