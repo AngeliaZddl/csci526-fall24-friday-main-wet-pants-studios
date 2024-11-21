@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using System.Collections;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
@@ -13,15 +12,11 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
     public string ghostTag = "Ghost";  // Tag for the Ghost
     public float interactionDistance = 3f;  // Interaction distance between the player and the button
     public GameObject victoryCanvas;  // Reference to the victory UI Canvas
-    public TMP_Text statusKey;     // Reference to the status text UI
     public LayerMask obstacleLayerMask; // Used to specify which objects are considered obstacles
-    public float messageDisplayDuration = 3f;  // Duration to display the message
 
     private float time2clearlevel;  // Timer for level clear time
-    private float distance;  // Stores the distance to avoid redundant calculations
     private float totalDistanceToGhost = 0f;  // Total accumulated distance to ghost
     private int frameCount = 0;  // Frame counter to calculate average distance
-    private Coroutine hideMessageCoroutine;  // Reference to the coroutine used to hide the message
 
     private PlayerMovement playerMovement;  // Reference to PlayerMovement for distance data
 
@@ -66,28 +61,13 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
         frameCount++;
 
         // Use Raycast to check if there is an obstacle between the player and the button
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
-            UpdateStatusText("Press E to close door");
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CloseDoorAndTriggerVictory();
-            }
-
-            if (hideMessageCoroutine != null)
-            {
-                StopCoroutine(hideMessageCoroutine);
-                hideMessageCoroutine = null;
-            }
-        }
-        else
-        {
-            if (hideMessageCoroutine == null && statusKey.enabled)
-            {
-                hideMessageCoroutine = StartCoroutine(HideStatusMessageAfterDelay(messageDisplayDuration));
             }
         }
     }
@@ -103,7 +83,6 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
     void CloseDoorAndTriggerVictory()
     {
         doorAnimator.SetTrigger("Close");
-        UpdateStatusText("Door is closing...");
         ShowVictoryUI();
 
         // Calculate average distance to the Ghost
@@ -130,13 +109,6 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
 
     void Nextlevel()
     {
-        //Debug.Log("Quitting the game...");
-// #if UNITY_EDITOR
-//                 UnityEditor.EditorApplication.isPlaying = false;
-// #else
-//         Application.Quit();
-// #endif
-
         if(SceneManager.GetActiveScene().name == "Level0") {
             SceneManager.LoadScene("Level0.5");
         } else if (SceneManager.GetActiveScene().name == "Level0.5") {
@@ -144,27 +116,6 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
         } else {
             Application.Quit();
         }
-    }
-
-    void UpdateStatusText(string message)
-    {
-        if (statusKey != null)
-        {
-            statusKey.text = message;
-            statusKey.enabled = true;
-        }
-    }
-
-    IEnumerator HideStatusMessageAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        if (statusKey != null)
-        {
-            statusKey.enabled = false;
-        }
-
-        hideMessageCoroutine = null;
     }
 }
 

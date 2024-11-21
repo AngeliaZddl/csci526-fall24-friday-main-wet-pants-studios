@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using System.Collections;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
@@ -12,15 +11,11 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     public string ghostTag = "Ghost";  // Tag for the Ghost
     public float interactionDistance = 3f;  // Interaction distance between the player and the button
     public GameObject victoryCanvas;  // Reference to the victory UI Canvas
-    public TMP_Text statusKey;     // Reference to the status text UI
     public LayerMask obstacleLayerMask; // Used to specify which objects are considered obstacles
-    public float messageDisplayDuration = 3f;  // Duration to display the message
 
     private float time2clearlevel;  // Timer for level clear time
-    private float distance;  // Stores the distance to avoid redundant calculations
     private float totalDistanceToGhost = 0f;  // Total accumulated distance to ghost
     private int frameCount = 0;  // Frame counter to calculate average distance
-    private Coroutine hideMessageCoroutine;  // Reference to the coroutine used to hide the message
 
     private PlayerMovement playerMovement;  // Reference to PlayerMovement for distance data
 
@@ -32,9 +27,9 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 
     async void Start()
     {
-        await UnityServices.InitializeAsync();  // �ȴ� Analytics �����ʼ�����
+        await UnityServices.InitializeAsync();  // Wait for Analytics service to initialize
 
-        // ���������ռ������������ͬ�������ռ���
+        // Start data collection for analytics
         AnalyticsService.Instance.StartDataCollection();
 
         time2clearlevel = 0.0f;  // Start timer for level clear event
@@ -53,10 +48,7 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     {
         time2clearlevel += Time.deltaTime;  // Increment timer for time2clearlevel event
 
-        // Calculate distance between player and ghost 我开始修改这一块 Kevin add if statement
-        //float distanceToGhost = Vector3.Distance(player.transform.position, ghost.transform.position);
-        //totalDistanceToGhost += distanceToGhost;
-        //
+        // Calculate distance between player and ghost
         float distanceToGhost = 0;
 
         if (ghost != null)
@@ -65,32 +57,16 @@ public class ElevatorCloseButtonControl : MonoBehaviour
         }
         totalDistanceToGhost += distanceToGhost;
 
-
         frameCount++;
 
         // Use Raycast to check if there is an obstacle between the player and the button
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
-            UpdateStatusText("Press E to close door");
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CloseDoorAndTriggerVictory();
-            }
-
-            if (hideMessageCoroutine != null)
-            {
-                StopCoroutine(hideMessageCoroutine);
-                hideMessageCoroutine = null;
-            }
-        }
-        else
-        {
-            if (hideMessageCoroutine == null && statusKey.enabled)
-            {
-                hideMessageCoroutine = StartCoroutine(HideStatusMessageAfterDelay(messageDisplayDuration));
             }
         }
     }
@@ -106,7 +82,6 @@ public class ElevatorCloseButtonControl : MonoBehaviour
     void CloseDoorAndTriggerVictory()
     {
         doorAnimator.SetTrigger("Close");
-        UpdateStatusText("Door is closing...");
         ShowVictoryUI();
 
         // Calculate average distance to the Ghost
@@ -139,27 +114,6 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    void UpdateStatusText(string message)
-    {
-        if (statusKey != null)
-        {
-            statusKey.text = message;
-            statusKey.enabled = true;
-        }
-    }
-
-    IEnumerator HideStatusMessageAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        if (statusKey != null)
-        {
-            statusKey.enabled = false;
-        }
-
-        hideMessageCoroutine = null;
     }
 }
 

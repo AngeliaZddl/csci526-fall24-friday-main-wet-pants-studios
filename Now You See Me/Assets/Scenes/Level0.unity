@@ -7920,7 +7920,6 @@ MonoBehaviour:
   doorAnimator: {fileID: 1043010993}
   player: {fileID: 453006244}
   interactionDistance: 4
-  statusText: {fileID: 966126489}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -12870,13 +12869,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1043010993}
   player: {fileID: 453006244}
-  interactionDistance: 4
+  interactionDistance: 5
   victoryCanvas: {fileID: 1859897400}
-  statusKey: {fileID: 966126489}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  messageDisplayDuration: 3
 --- !u!1001 &1572525121
 PrefabInstance:
   m_ObjectHideFlags: 0
