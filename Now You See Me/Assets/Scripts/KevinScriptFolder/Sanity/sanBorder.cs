@@ -30,20 +30,11 @@ public class sanBorder : MonoBehaviour
             // 获取当前的 sanity 值
             float currentSanity = playerSanityScript.playerSanity;
 
-            // 如果 sanity 小于等于 50，则逐渐增加透明度
-            if (currentSanity <= 50)
-            {
-                // 根据 sanity 值计算 Alpha 值（越小越接近 maxAlpha）
-                float alpha = Mathf.Lerp(maxAlpha, minAlpha, currentSanity / 50f);
+            // 根据 sanity 值从 100 到 0 计算 Alpha 值
+            float alpha = Mathf.Lerp(minAlpha, maxAlpha, (100f - currentSanity) / 100f);
 
-                // 设置 Image 的透明度
-                SetImageAlpha(alpha);
-            }
-            else
-            {
-                // 当 sanity 大于 50 时，将透明度恢复为 minAlpha
-                SetImageAlpha(minAlpha);
-            }
+            // 设置 Image 的透明度
+            SetImageAlpha(alpha);
         }
     }
 

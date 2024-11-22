@@ -3935,7 +3935,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &322851497
 MonoBehaviour:
@@ -4267,7 +4267,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &349114017
 MonoBehaviour:
@@ -11970,7 +11970,6 @@ MonoBehaviour:
   doorAnimator: {fileID: 1043010993}
   player: {fileID: 453006244}
   interactionDistance: 4
-  statusText: {fileID: 966126489}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -18463,7 +18462,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &1562790142
 MonoBehaviour:
@@ -18685,11 +18684,9 @@ MonoBehaviour:
   ghostTag: Ghost
   interactionDistance: 5
   victoryCanvas: {fileID: 1859897400}
-  statusKey: {fileID: 966126489}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  messageDisplayDuration: 3
   senceOneDeathRecord: {fileID: 453006259}
 --- !u!1001 &1572525121
 PrefabInstance:
