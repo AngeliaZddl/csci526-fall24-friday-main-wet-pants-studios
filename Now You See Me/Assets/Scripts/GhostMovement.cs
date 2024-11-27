@@ -21,8 +21,7 @@ public class GhostController : MonoBehaviour, IGhostController
     public float minZ = -50f;
     public float maxZ = 50f;
 
-    // 重置位置（灵活设置）
-    public Vector3 resetPosition;
+    private Vector3 resetPosition; // 重置位置（自动初始化）
 
     // 教程功能
     public bool tuto = false;
@@ -43,7 +42,7 @@ public class GhostController : MonoBehaviour, IGhostController
     {
         rb = GetComponent<Rigidbody>();
 
-        // 初始化重置位置为幽灵当前的起始位置
+        // 自动初始化重置位置为幽灵当前的起始位置
         resetPosition = transform.position;
 
         // Get the Light component on the ghost
