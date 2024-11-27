@@ -3,17 +3,17 @@ using System.Collections;
 
 public class GhostController : MonoBehaviour, IGhostController
 {
-    public Transform player;          // 玩家Transform，需要在Inspector中分配
-    public float chaseRange = 10f;    // 幽灵追逐范围
-    public float moveSpeed = 5f;      // 移动速度
-    public float rotationSpeed = 5f;  // 转向速度
+    public Transform player;          // Player's Transform, to be assigned in the Inspector
+    public float chaseRange = 10f;    // Ghost's chasing range
+    public float moveSpeed = 5f;      // Movement speed
+    public float rotationSpeed = 5f;  // Rotation speed
 
-    public float randomMoveDuration = 2f; // 随机移动持续时间
+    public float randomMoveDuration = 2f; // Duration for random movement
     private float randomMoveTimer = 0f;
 
     private Vector3 randomDirection;
 
-    // 边界变量
+    // Boundary variables
     public float minX = -50f;
     public float maxX = 50f;
     public float minY = 0f;
@@ -21,28 +21,28 @@ public class GhostController : MonoBehaviour, IGhostController
     public float minZ = -50f;
     public float maxZ = 50f;
 
-    private Vector3 resetPosition; // 重置位置（自动初始化）
+    private Vector3 resetPosition; // Reset position (automatically initialized)
 
-    // 教程功能
+    // Tutorial-related functionality
     public bool tuto = false;
     public bool moveAllowed = false;
 
     private Rigidbody rb;
     private bool isPaused = false;
 
-    // Shake variables
-    private bool isShaking = false;          // Indicates if the ghost is currently shaking
+    // Shake-related variables
+    private bool isShaking = false;          // Indicates if the ghost is shaking
     private float shakeMagnitude = 0.1f;     // Magnitude of the shake effect
     private Vector3 originalPosition;        // Original position of the ghost
 
-    // Light variables
+    // Light-related variables
     private Light ghostLight;                // Reference to the ghost's light component
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        // 自动初始化重置位置为幽灵当前的起始位置
+        // Automatically initialize reset position to the ghost's starting position
         resetPosition = transform.position;
 
         // Get the Light component on the ghost
@@ -57,15 +57,12 @@ public class GhostController : MonoBehaviour, IGhostController
 
     void Update()
     {
-        // If the ghost is shaking or paused, skip other behaviors
+        // Skip behaviors if the ghost is shaking or paused
         if (isShaking || isPaused) return;
-
-        Debug.Log($"Ghost {gameObject.name}: Position = {transform.position}");
 
         // Check if the ghost is out of bounds
         if (IsOutOfBounds())
         {
-            Debug.Log($"Ghost {gameObject.name}: Out of bounds! Returning to origin.");
             ReturnToOrigin();
         }
         else
@@ -77,7 +74,6 @@ public class GhostController : MonoBehaviour, IGhostController
             {
                 if (moveAllowed)
                 {
-                    Debug.Log($"Ghost {gameObject.name}: Tutorial mode - chasing player.");
                     ChasePlayer();
                 }
             }
@@ -85,12 +81,10 @@ public class GhostController : MonoBehaviour, IGhostController
             {
                 if (distanceToPlayer <= chaseRange)
                 {
-                    Debug.Log($"Ghost {gameObject.name}: Chasing player.");
                     ChasePlayer();
                 }
                 else
                 {
-                    Debug.Log($"Ghost {gameObject.name}: Random movement.");
                     RandomMovement();
                 }
             }
@@ -104,7 +98,6 @@ public class GhostController : MonoBehaviour, IGhostController
         // Check if there's an obstacle ahead
         if (IsObstacleAhead())
         {
-            Debug.Log($"Ghost {gameObject.name}: Obstacle ahead, avoiding.");
             direction += AvoidObstacle();
         }
 
@@ -128,24 +121,21 @@ public class GhostController : MonoBehaviour, IGhostController
 
             randomDirection = Quaternion.Euler(0f, randomAngle, 0f) * transform.forward;
 
-            // 确保随机方向不是零向量
+            // Ensure the random direction is not a zero vector
             if (randomDirection == Vector3.zero)
             {
                 randomDirection = transform.forward;
             }
-
-            Debug.Log($"Ghost {gameObject.name}: New random direction generated = {randomDirection}");
         }
 
         Vector3 moveDirection = randomDirection;
 
         if (IsObstacleAhead())
         {
-            Debug.Log($"Ghost {gameObject.name}: Obstacle ahead, adjusting direction.");
             moveDirection += AvoidObstacle();
         }
 
-        // 确保方向有效
+        // Ensure the movement direction is valid
         if (moveDirection == Vector3.zero)
         {
             moveDirection = transform.forward;
@@ -155,8 +145,6 @@ public class GhostController : MonoBehaviour, IGhostController
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
         rb.velocity = transform.forward * moveSpeed;
-
-        Debug.Log($"Ghost {gameObject.name}: Moving with velocity = {rb.velocity}");
     }
 
     bool IsObstacleAhead()
@@ -190,8 +178,6 @@ public class GhostController : MonoBehaviour, IGhostController
         rb.velocity = Vector3.zero;
         transform.position = resetPosition;
         randomMoveTimer = 0f;
-
-        Debug.Log($"Ghost {gameObject.name}: Returned to reset position = {resetPosition}");
     }
 
     public void Stun(float duration)
@@ -235,8 +221,6 @@ public class GhostController : MonoBehaviour, IGhostController
         {
             ghostLight.enabled = false;
         }
-
-        Debug.Log($"Ghost {gameObject.name}: Stun finished.");
     }
 
     private void OnCollisionEnter(Collision collision)

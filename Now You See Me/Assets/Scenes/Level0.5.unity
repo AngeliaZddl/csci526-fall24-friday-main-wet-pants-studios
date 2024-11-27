@@ -4137,7 +4137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 453006244}
   chaseRange: 20
-  moveSpeed: 5
+  moveSpeed: 4
   rotationSpeed: 5
   randomMoveDuration: 2
   minX: -36
