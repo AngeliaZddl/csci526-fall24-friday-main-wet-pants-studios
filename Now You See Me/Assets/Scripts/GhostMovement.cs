@@ -72,9 +72,15 @@ public class GhostController : MonoBehaviour, IGhostController
 
             if (tuto)
             {
+                Debug.Log("in tuto");
                 if (moveAllowed)
                 {
+                    Debug.Log("ima move");
                     ChasePlayer();
+                }
+                else
+                {
+                    rb.velocity = transform.forward * 0f;
                 }
             }
             else

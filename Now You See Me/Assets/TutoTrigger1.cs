@@ -21,6 +21,7 @@ public class TutoTrigger1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(activated)
         {
             //Debug.Log(Vector3.Dot(orig, player.transform.forward));
@@ -30,18 +31,19 @@ public class TutoTrigger1 : MonoBehaviour
                 tc.trigger1Turned();
             }
         }
+        */
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tc.trigger1();
             g.SetActive(true);
-            msg.SetActive(true);
-            player = other.gameObject;
-            orig = other.gameObject.transform.forward;
-            activated = true;
+            //msg.SetActive(true);
+            GhostController gc = g.GetComponent<GhostController>();
+            gc.tuto = true;
+            gc.moveAllowed = true;
+            tc.trigger1();
         }
     }
 }

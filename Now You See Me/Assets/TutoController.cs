@@ -16,6 +16,8 @@ public class TutoController : MonoBehaviour
     public TMPro.TextMeshPro tmp;
     public TMPro.TextMeshPro tmp2;
 
+    public GameObject fPrompt;
+
     private bool moveLearned = false;
     private bool wPressed = false;
     private bool aPressed = false;
@@ -34,16 +36,27 @@ public class TutoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GhostController gc = ghost.GetComponent<GhostController>();
-        gc.tuto = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!moveLearned) learnMove();
-        if (t2Triggered && !stunLearned) learnStun();
+        //if (!moveLearned) learnMove();
+        //if (t2Triggered && !stunLearned) learnStun();
+        if (t2Triggered && !stunLearned) checkF();
         if (t3Triggered && !playerTurned) turnPlayer(turnTries);
+    }
+
+    void checkF()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            stunLearned = true;
+            PlayerMovement pm = player.GetComponent<PlayerMovement>();
+            pm.moveAllowed = true;
+            fPrompt.SetActive(false);
+        }
+
     }
 
     void turnPlayer(int tries)
@@ -107,6 +120,7 @@ public class TutoController : MonoBehaviour
     {
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
         pm.moveAllowed = false;
+        t1.SetActive(false);
     }
 
     public void trigger1Turned()
@@ -119,9 +133,7 @@ public class TutoController : MonoBehaviour
     public void trigger2()
     {
         t2Triggered = true;
-        PlayerMovement pm = player.GetComponent<PlayerMovement>();
-        pm.moveAllowed = false;
-        t1.SetActive(false);
+        fPrompt.SetActive(true);
         t2.SetActive(false);
     }
 

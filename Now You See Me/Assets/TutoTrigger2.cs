@@ -24,12 +24,14 @@ public class TutoTrigger2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        Debug.Log("t2");
+        if(other.gameObject.CompareTag("Ghost"))
         {
-            g1.SetActive(false);
-            g2.SetActive(true);
-            GhostController gc2 = g2.GetComponent<GhostController>();
-            gc2.tuto = true;
+            Debug.Log("its ghost");
+            //g1.SetActive(false);
+            //g2.SetActive(true);
+            GhostController gc1 = other.gameObject.GetComponent<GhostController>();
+            gc1.moveAllowed = false;
             tc.trigger2();
         }
 
