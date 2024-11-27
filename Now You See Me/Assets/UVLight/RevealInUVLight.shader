@@ -60,7 +60,7 @@ Shader "Custom/RevealInUVLight"
             float distance = length(_LightPosition - IN.worldPos);
 
             // strength fall off 
-            strength = strength * (1/(1+exp(10*(distance-24.5))));
+            strength = strength * (1/(1+exp(10*(distance-19.5))));
             
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
