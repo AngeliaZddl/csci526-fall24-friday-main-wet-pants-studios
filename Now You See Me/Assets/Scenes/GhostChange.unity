@@ -5737,6 +5737,7 @@ MonoBehaviour:
   moveAllowed: 1
   turnAllowed: 1
   totalDistanceMoved: 0
+  walkingClip: {fileID: 0}
 --- !u!143 &453006246
 CharacterController:
   m_ObjectHideFlags: 0
@@ -15391,7 +15392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f620fd9715774694b3b04c430f35514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealMaterial: {fileID: 2100000, guid: 8ee4fab1b9fdc40f4b2bdd6e34310e04, type: 2}
+  revealMaterials: []
   myLight: {fileID: 1275311697}
 --- !u!1 &1282166934
 GameObject:
@@ -15753,7 +15754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f620fd9715774694b3b04c430f35514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealMaterial: {fileID: 2100000, guid: 3f660cb8ac674d346860fb116a2e2aaf, type: 2}
+  revealMaterials: []
   myLight: {fileID: 1332314243}
 --- !u!108 &1332314243
 Light:
@@ -18356,7 +18357,7 @@ Transform:
   m_GameObject: {fileID: 1562790137}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.7, y: 1, z: -21.2}
+  m_LocalPosition: {x: 14.7, y: 1, z: -30.1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
