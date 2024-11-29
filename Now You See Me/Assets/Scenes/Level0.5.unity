@@ -15780,7 +15780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f620fd9715774694b3b04c430f35514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealMaterial: {fileID: 2100000, guid: 8ee4fab1b9fdc40f4b2bdd6e34310e04, type: 2}
+  revealMaterials: []
   myLight: {fileID: 1275311697}
 --- !u!1 &1282166934
 GameObject:
@@ -16009,7 +16009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f620fd9715774694b3b04c430f35514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealMaterial: {fileID: 2100000, guid: 8ee4fab1b9fdc40f4b2bdd6e34310e04, type: 2}
+  revealMaterials:
+  - {fileID: 2100000, guid: 8ee4fab1b9fdc40f4b2bdd6e34310e04, type: 2}
   myLight: {fileID: 1332314243}
 --- !u!108 &1332314243
 Light:
