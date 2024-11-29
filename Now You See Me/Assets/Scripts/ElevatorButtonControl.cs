@@ -8,6 +8,9 @@ public class ElevatorButtonControl : MonoBehaviour
     private bool isDoorOpen = false;  // Track whether the door is open
     public LayerMask obstacleLayerMask;  // Layer mask to detect obstacles
 
+    public bool tuto = false;
+    public GameObject prompt;
+
     void Update()
     {
         // Calculate the distance between the player and the button
@@ -16,8 +19,10 @@ public class ElevatorButtonControl : MonoBehaviour
         // If the door is not open, the player is within interaction distance, and there’s no obstacle, allow interaction
         if (!isDoorOpen && distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
+            if (tuto) prompt.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                prompt.SetActive(false);
                 OpenDoor();  // Open the door when E is pressed
             }
         }

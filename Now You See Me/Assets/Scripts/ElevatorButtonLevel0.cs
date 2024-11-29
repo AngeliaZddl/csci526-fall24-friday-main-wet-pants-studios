@@ -13,6 +13,9 @@ public class ElevatorButtonLevel0 : MonoBehaviour
     private float distance;  // Stores the distance to avoid redundant calculations
     private float time2clearlevel;  // Timer for level clear event
 
+    public bool tuto = false;
+    public GameObject prompt;
+
     void Start()
     {
         // Start timer for level clear event
@@ -33,8 +36,11 @@ public class ElevatorButtonLevel0 : MonoBehaviour
         // Check if there is no obstacle and the player presses the E key
         if (distance < interactionDistance && !IsObstacleBetweenPlayerAndButton())
         {
+            if (tuto) prompt.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.E))
             {
+                prompt.SetActive(false);
                 CloseDoorAndTriggerVictory();
             }
         }

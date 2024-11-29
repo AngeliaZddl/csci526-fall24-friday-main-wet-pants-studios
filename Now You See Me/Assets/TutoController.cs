@@ -69,7 +69,7 @@ public class TutoController : MonoBehaviour
         if (tries > 5 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
         {
             playerTurned = true;
-            playerCamera.transform.rotation *= Quaternion.Euler(Vector3.left * -10);
+            //playerCamera.transform.rotation *= Quaternion.Euler(Vector3.left * -10);
             letGhost3Loose();
         }
     }
