@@ -72,10 +72,10 @@ public class GhostController : MonoBehaviour, IGhostController
 
             if (tuto)
             {
-                Debug.Log("in tuto");
+                //Debug.Log("in tuto");
                 if (moveAllowed)
                 {
-                    Debug.Log("ima move");
+                    //Debug.Log("ima move");
                     ChasePlayer();
                 }
                 else

@@ -15,6 +15,7 @@ public class TutoController : MonoBehaviour
     public GameObject t3;
     public TMPro.TextMeshPro tmp;
     public TMPro.TextMeshPro tmp2;
+    public GameObject csc;
 
     public GameObject fPrompt;
 
@@ -44,7 +45,7 @@ public class TutoController : MonoBehaviour
         //if (!moveLearned) learnMove();
         //if (t2Triggered && !stunLearned) learnStun();
         if (t2Triggered && !stunLearned) checkF();
-        if (t3Triggered && !playerTurned) turnPlayer(turnTries);
+        if (t3Triggered && !playerTurned) turnPlayer(0);
     }
 
     void checkF()
@@ -55,15 +56,17 @@ public class TutoController : MonoBehaviour
             PlayerMovement pm = player.GetComponent<PlayerMovement>();
             pm.moveAllowed = true;
             fPrompt.SetActive(false);
+            cutsceneController c = csc.GetComponent<cutsceneController>();
+            c.hide();
         }
 
     }
 
-    void turnPlayer(int tries)
+    void turnPlayer(float tries)
     {
-        turnTries++;
-        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, target, 0.5f);
-        if (tries > 500 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
+        tries += Time.deltaTime;
+        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, target, 0.01f);
+        if (tries > 5 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
         {
             playerTurned = true;
             playerCamera.transform.rotation *= Quaternion.Euler(Vector3.left * -10);
@@ -82,7 +85,9 @@ public class TutoController : MonoBehaviour
     {
         ghost3.SetActive(false);
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
-        tmp2.SetText("Turn Back and Run!");
+        //tmp2.SetText("Turn Back and Run!");
+        cutsceneController c = csc.GetComponent<cutsceneController>();
+        c.hide();
         pm.moveAllowed = true;
         pm.turnAllowed = true;
     }
@@ -121,6 +126,8 @@ public class TutoController : MonoBehaviour
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
         pm.moveAllowed = false;
         t1.SetActive(false);
+        cutsceneController c = csc.GetComponent<cutsceneController>();
+        c.show();
     }
 
     public void trigger1Turned()

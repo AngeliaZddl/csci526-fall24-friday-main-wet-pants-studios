@@ -8,6 +8,7 @@ public class TutoTrigger3 : MonoBehaviour
     public GameObject g3;
     public GameObject tmp;
     public TutoController tc;
+    public GameObject csc;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,11 @@ public class TutoTrigger3 : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             g2.SetActive(false);
-            tmp.SetActive(true);
+            //tmp.SetActive(true);
             g3.SetActive(true);
             GhostController gc = g3.GetComponent<GhostController>();
+            cutsceneController c = csc.GetComponent<cutsceneController>();
+            c.show();
             gc.tuto = true;
             tc.trigger3();
         }
