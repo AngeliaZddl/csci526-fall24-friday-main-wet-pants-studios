@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1201087977536142821}
   - component: {fileID: 2436391172948298575}
-  - component: {fileID: 9094605802851977776}
   - component: {fileID: 3297385640476526969}
   - component: {fileID: 5066857332571321942}
+  - component: {fileID: 5219472840672178913}
   m_Layer: 0
   m_Name: newVerGhost
   m_TagString: Ghost
@@ -64,27 +64,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &9094605802851977776
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017923629511189768}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.51, y: 7.76, z: 3.82}
-  m_Center: {x: 0.11, y: -1.24, z: -3.19}
 --- !u!108 &3297385640476526969
 Light:
   m_ObjectHideFlags: 0
@@ -159,6 +138,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509bec38b5d6d45488f1a63d61dc926e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &5219472840672178913
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017923629511189768}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.44
+  m_Height: 8.84
+  m_Direction: 1
+  m_Center: {x: 0.04, y: -1.33, z: -3.09}
 --- !u!1001 &1775218089272072858
 PrefabInstance:
   m_ObjectHideFlags: 0
