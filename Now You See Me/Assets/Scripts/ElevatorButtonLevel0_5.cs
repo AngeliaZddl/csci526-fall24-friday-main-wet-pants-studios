@@ -114,7 +114,7 @@ public class ElevatorButtonLevel0_5 : MonoBehaviour
         } else if (SceneManager.GetActiveScene().name == "Level0.5") {
             SceneManager.LoadScene("Level1");
         } else {
-            Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

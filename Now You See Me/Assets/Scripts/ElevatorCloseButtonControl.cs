@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Services.Analytics;
 using Unity.Services.Core;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class ElevatorCloseButtonControl : MonoBehaviour
 {
@@ -98,7 +99,7 @@ public class ElevatorCloseButtonControl : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(lc);
         Debug.Log("Event sent: time2clear = " + time2clearlevel + ", totalDistanceMoved = " + playerMovement.totalDistanceMoved + ", averageDistanceToGhost = " + averageDistanceToGhost + ", deathCount = " + senceOneDeathRecord.GetDeathCount());
 
-        Invoke("QuitGame", 2f);
+        Invoke("Nextlevel", 2f);
     }
 
     void ShowVictoryUI()
@@ -106,14 +107,25 @@ public class ElevatorCloseButtonControl : MonoBehaviour
         victoryCanvas.SetActive(true);
     }
 
-    void QuitGame()
+    void Nextlevel()
     {
-        Debug.Log("Quitting the game...");
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        if (SceneManager.GetActiveScene().name == "Level0")
+        {
+            SceneManager.LoadScene("Level0.5");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level0.5")
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+            Time.timeScale = 0f;
+
+            // 显示并解锁鼠标光标
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
 

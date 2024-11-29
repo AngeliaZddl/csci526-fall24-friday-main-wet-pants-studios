@@ -84,7 +84,7 @@ public class ElevatorButtonLevel0 : MonoBehaviour
         }
         else
         {
-            Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
