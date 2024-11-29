@@ -9,7 +9,7 @@ public class ElevatorButtonControl : MonoBehaviour
     public LayerMask obstacleLayerMask;  // Layer mask to detect obstacles
 
     public bool tuto = false;
-    public GameObject prompt;
+    public GameObject prompt = null;
 
     void Update()
     {
@@ -22,7 +22,7 @@ public class ElevatorButtonControl : MonoBehaviour
             if (tuto) prompt.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                prompt.SetActive(false);
+                if (tuto) prompt.SetActive(false);
                 OpenDoor();  // Open the door when E is pressed
             }
         }
