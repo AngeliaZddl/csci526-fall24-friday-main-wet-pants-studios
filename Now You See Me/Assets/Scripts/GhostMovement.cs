@@ -104,7 +104,7 @@ public class GhostController : MonoBehaviour, IGhostController
         // Check if there's an obstacle ahead
         if (IsObstacleAhead())
         {
-            Debug.Log("Obstacle Ahead");
+            //Debug.Log("Obstacle Ahead");
             direction += AvoidObstacle();
         }
 
