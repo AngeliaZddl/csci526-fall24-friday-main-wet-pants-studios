@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KevinCameraShake : MonoBehaviour
 {
-    public float shakeMagnitude = 0.2f; // 抖动幅度
+    public float shakeMagnitude = 0.05f; // 抖动幅度
     public bool isShaking = false; // 控制相机是否抖动的开关
 
     private Vector3 originalPos;
