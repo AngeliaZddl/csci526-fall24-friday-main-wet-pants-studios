@@ -3016,9 +3016,33 @@ PrefabInstance:
       propertyPath: playerSanityScript
       value: 
       objectReference: {fileID: 453006248}
+    - target: {fileID: 7486666484956303410, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486666484956303410, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 8543416024784927361, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
       propertyPath: m_Name
       value: SanBloodBorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000688850078780357, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000688850078780357, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000688850078780357, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000688850078780357, guid: 3e1fdfd058e0d90489d5bd7539b3592d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12929,6 +12953,8 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  tuto: 0
+  prompt: {fileID: 0}
 --- !u!65 &1000419825
 BoxCollider:
   m_ObjectHideFlags: 0
