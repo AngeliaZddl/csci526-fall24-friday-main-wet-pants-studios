@@ -6,66 +6,66 @@ using Unity.Services.Core;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 6.0f;  // 移动速度
-    public float mouseSensitivity = 2.0f;  // 鼠标灵敏度
-    public Transform playerCamera;  // 玩家摄像头
+    public float speed = 6.0f;  // ????????
+    public float mouseSensitivity = 1.0f;  // ??????????
+    public Transform playerCamera;  // ??????????
 
     public bool moveAllowed = true;
     public bool turnAllowed = true;
 
-    private float rotationX = 0.0f;  // X轴旋转角度
-    private Vector3 lastPosition;  // 上一次玩家位置
-    public float totalDistanceMoved = 0.0f;  // 累计移动距离
+    private float rotationX = 0.0f;  // X??????????
+    private Vector3 lastPosition;  // ??????????????
+    public float totalDistanceMoved = 0.0f;  // ????????????
 
-    public AudioClip walkingClip;  // 脚步声音频
-    private AudioSource audioSource;  // 用于播放脚步声
-    private bool isWalking = false;  // 判断玩家是否在移动
+    public AudioClip walkingClip;  // ??????????
+    private AudioSource audioSource;  // ??????????????
+    private bool isWalking = false;  // ??????????????????
 
     void Start()
     {
-        UnityServices.InitializeAsync();  // 初始化 Unity 服务
-        lastPosition = transform.position;  // 初始化上一次位置为玩家初始位置
+        UnityServices.InitializeAsync();  // ?????? Unity ????
+        lastPosition = transform.position;  // ??????????????????????????????
 
-        // 初始化 AudioSource
+        // ?????? AudioSource
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = walkingClip;
-        audioSource.loop = true;  // 设置为循环播放
-        audioSource.volume = 0.5f;  // 设置音量（可根据需要调整）
+        audioSource.loop = true;  // ??????????????
+        audioSource.volume = 0.5f;  // ??????????????????????????
     }
 
     void Update()
     {
         if (moveAllowed)
         {
-            // 移动输入
+            // ????????
             float moveX = Input.GetAxis("Horizontal");
             float moveZ = Input.GetAxis("Vertical");
 
-            // 计算移动方向
+            // ????????????
             Vector3 move = transform.right * moveX + transform.forward * moveZ;
             CharacterController controller = GetComponent<CharacterController>();
             controller.Move(move * speed * Time.deltaTime);
 
-            // 检测是否在移动并播放脚步声
+            // ??????????????????????????
             bool isCurrentlyWalking = moveX != 0 || moveZ != 0;
             if (isCurrentlyWalking && !isWalking)
             {
-                audioSource.Play();  // 开始播放脚步声
+                audioSource.Play();  // ??????????????
                 isWalking = true;
             }
             else if (!isCurrentlyWalking && isWalking)
             {
-                audioSource.Stop();  // 停止播放脚步声
+                audioSource.Stop();  // ??????????????
                 isWalking = false;
             }
 
-            // 计算移动距离
+            // ????????????
             CalculateDistanceMoved();
         }
 
         if (turnAllowed)
         {
-            // 旋转摄像头
+            // ??????????
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // 计算玩家移动的距离
+    // ??????????????????
     void CalculateDistanceMoved()
     {
         float distanceThisFrame = Vector3.Distance(transform.position, lastPosition);

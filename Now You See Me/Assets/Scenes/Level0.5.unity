@@ -6051,7 +6051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  mouseSensitivity: 2
+  mouseSensitivity: 1
   playerCamera: {fileID: 1583266845}
   moveAllowed: 1
   turnAllowed: 1
