@@ -32,7 +32,7 @@ public class TutoController : MonoBehaviour
     private bool t3Triggered = false;
     private bool playerTurned = false;
     private Quaternion target;
-    private int turnTries = 0;
+    private float turnTries = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class TutoController : MonoBehaviour
         //if (!moveLearned) learnMove();
         //if (t2Triggered && !stunLearned) learnStun();
         if (t2Triggered && !stunLearned) checkF();
-        if (t3Triggered && !playerTurned) turnPlayer(0);
+        if (t3Triggered && !playerTurned) turnPlayer();
     }
 
     void checkF()
@@ -62,11 +62,11 @@ public class TutoController : MonoBehaviour
 
     }
 
-    void turnPlayer(float tries)
+    void turnPlayer()
     {
-        tries += Time.deltaTime;
+        turnTries += Time.deltaTime;
         player.transform.rotation = Quaternion.Lerp(player.transform.rotation, target, 0.01f);
-        if (tries > 5 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
+        if (turnTries > 3 || (Vector3.Dot(player.transform.forward, Vector3.left) > 0.999))
         {
             playerTurned = true;
             //playerCamera.transform.rotation *= Quaternion.Euler(Vector3.left * -10);

@@ -2,7 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/Build_*
+#/Build_*
 
 /Now You See Me/[Ll]ibrary/
 /Now You See Me/[Tt]emp/

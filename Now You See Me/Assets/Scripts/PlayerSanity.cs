@@ -26,7 +26,7 @@ public class PlayerSanity : MonoBehaviour
 
     public void directlyLoseSanity()
     {
-        playerSanity -= 10;
+        playerSanity -= 20;
 
     }
 
