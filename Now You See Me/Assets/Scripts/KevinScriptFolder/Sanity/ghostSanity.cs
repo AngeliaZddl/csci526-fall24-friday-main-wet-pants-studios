@@ -13,6 +13,9 @@ public class ghostSanity : MonoBehaviour
 
     //public GhostBack ghostBackScript; // 引用 GhostBack 脚本
 
+
+
+
     private void setSanBarToRedColor()
     {
         colorBar.GetComponent<Image>().color = Color.red;
@@ -27,6 +30,7 @@ public class ghostSanity : MonoBehaviour
     // 当带有 "player" 标签的对象停留在触发器内时调用
     private void OnTriggerStay(Collider other)
     {
+
 
         //If player stay in the ghost's trigger, sanity lose
         if (other.CompareTag("Ghost"))
@@ -49,15 +53,36 @@ public class ghostSanity : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+
         // 检查是否是带有 "player" 标签的对象
         if (collision.gameObject.CompareTag("Ghost"))
         {
+            GhostController collidedGhostController = collision.gameObject.GetComponent<GhostController>();
+
+            GhostBack ghostBackScript = collision.gameObject.GetComponent<GhostBack>();
+
+            // 如果 Ghost 正在 shaking
+            if (collidedGhostController.getShakeStatus())
+            {
+                Debug.Log("Ghost is shaking. Losing sanity");
+
+
+                // 让 Ghost 返回原位
+                //if (ghostBackScript != null)
+                //{
+                //    ghostBackScript.ReturnToOriginalPosition();
+                //}
+
+                return; // 跳过后续逻辑
+            }
+
             setSanBarToRedColor();
             playerSanity.directlyLoseSanity();
             //在摇摆之前让ghost返回原位吧 如果有api要做的就在这里弄好了
             //ghostBackScript.ReturnToOriginalPosition();
             // 获取碰撞对象的 GhostBack 脚本，并调用 ReturnToOriginalPosition
-            GhostBack ghostBackScript = collision.gameObject.GetComponent<GhostBack>();
+
             if (ghostBackScript != null)
             {
                 ghostBackScript.ReturnToOriginalPosition();

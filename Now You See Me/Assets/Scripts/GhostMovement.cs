@@ -38,6 +38,10 @@ public class GhostController : MonoBehaviour, IGhostController
     // Light-related variables
     private Light ghostLight;                // Reference to the ghost's light component
 
+    //新的shake
+    private Vector3 originalChildPosition; // 记录子对象的初始位置
+    private Transform childToShake; // 引用第一个子对象
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -52,6 +56,17 @@ public class GhostController : MonoBehaviour, IGhostController
         if (ghostLight != null)
         {
             ghostLight.enabled = false;
+        }
+
+        // 检查是否有子对象
+        if (transform.childCount > 0)
+        {
+            childToShake = transform.GetChild(0); // 获取第一个子对象
+            originalChildPosition = childToShake.localPosition; // 记录子对象的初始位置
+        }
+        else
+        {
+            Debug.LogError("No child found for the ghost to shake.");
         }
     }
 
@@ -194,8 +209,13 @@ public class GhostController : MonoBehaviour, IGhostController
 
     IEnumerator ShakeAndPause(float duration)
     {
+        if (childToShake == null)
+        {
+            Debug.LogError("No child to shake. Make sure the child object is properly initialized.");
+            yield break; // 如果没有子对象，直接退出
+        }
+
         isPaused = true;
-        originalPosition = transform.position;
 
         // Stop movement
         rb.velocity = Vector3.zero;
@@ -214,14 +234,18 @@ public class GhostController : MonoBehaviour, IGhostController
             float offsetY = Random.Range(-1f, 1f) * shakeMagnitude;
             float offsetZ = Random.Range(-1f, 1f) * shakeMagnitude;
 
-            transform.position = originalPosition + new Vector3(offsetX, offsetY, offsetZ);
+            childToShake.localPosition = originalChildPosition + new Vector3(offsetX, offsetY, offsetZ);
+
+            //transform.position = originalPosition + new Vector3(offsetX, offsetY, offsetZ);
 
             elapsed += Time.deltaTime;
 
             yield return null;
         }
 
-        transform.position = originalPosition;
+        childToShake.localPosition = originalChildPosition;
+
+        //transform.position = originalPosition;
         isPaused = false;
 
         if (ghostLight != null)
@@ -244,5 +268,10 @@ public class GhostController : MonoBehaviour, IGhostController
                 }
             }
         }
+    }
+
+    public bool getShakeStatus()
+    {
+        return isPaused;
     }
 }
