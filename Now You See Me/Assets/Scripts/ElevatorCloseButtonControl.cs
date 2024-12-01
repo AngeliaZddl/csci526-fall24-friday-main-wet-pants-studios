@@ -25,6 +25,7 @@ public class ElevatorCloseButtonControl : MonoBehaviour
 
     private PlayerSanity playerSanity;  // Reference to PlayerSanity script
     public SenceOneDeathRecord senceOneDeathRecord;
+    public bool winLastLevel = false;
 
     async void Start()
     {
@@ -120,11 +121,7 @@ public class ElevatorCloseButtonControl : MonoBehaviour
         else
         {
             SceneManager.LoadScene("MainMenu");
-            Time.timeScale = 0f;
-
-            // 显示并解锁鼠标光标
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            
         }
     }
 }

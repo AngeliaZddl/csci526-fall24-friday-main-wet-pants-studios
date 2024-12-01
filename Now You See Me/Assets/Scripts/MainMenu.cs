@@ -12,6 +12,13 @@ public class MainMenuController : MonoBehaviour
     public string gameScene2 = "Level0.5";
     public string gameScene3 = "Level1";
     
+    void Start() {
+        Time.timeScale = 1f;
+
+        // 显示并解锁鼠标光标
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 
     // 启动游戏并加载游戏场景
     public void Totu()

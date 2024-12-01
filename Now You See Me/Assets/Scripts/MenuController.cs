@@ -53,7 +53,7 @@ public class MenuController : MonoBehaviour
         }
 
         // 暂停游戏时间
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
 
         // 显示并解锁鼠标光标
         Cursor.visible = true;
