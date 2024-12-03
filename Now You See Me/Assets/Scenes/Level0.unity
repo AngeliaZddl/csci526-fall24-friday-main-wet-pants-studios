@@ -3143,6 +3143,7 @@ GameObject:
   - component: {fileID: 349114012}
   - component: {fileID: 349114015}
   - component: {fileID: 349114016}
+  - component: {fileID: 349114017}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Ghost
@@ -3255,6 +3256,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 5
   randomMoveDuration: 2
+  dropManager: {fileID: 349114017}
   minX: -50
   maxX: 50
   minY: 0
@@ -3290,6 +3292,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &349114017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349114010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df83c56883c64c5988aa328f49c7852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 6441887728800020234, guid: ba3754492b80f448884cc61f352ade8e, type: 3}
+  dropChance: 1
 --- !u!1 &358175949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,6 +3651,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 5
   randomMoveDuration: 2
+  dropManager: {fileID: 0}
   minX: -50
   maxX: 50
   minY: 0
@@ -15927,6 +15945,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 5
   randomMoveDuration: 2
+  dropManager: {fileID: 0}
   minX: -50
   maxX: 50
   minY: 0

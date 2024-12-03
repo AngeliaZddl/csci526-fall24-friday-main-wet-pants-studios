@@ -12,6 +12,7 @@ public class GhostController : MonoBehaviour, IGhostController
     private float randomMoveTimer = 0f;
 
     private Vector3 randomDirection;
+    public DropManager dropManager;  //  DropManager
 
     // Boundary variables
     public float minX = -50f;
@@ -38,9 +39,9 @@ public class GhostController : MonoBehaviour, IGhostController
     // Light-related variables
     private Light ghostLight;                // Reference to the ghost's light component
 
-    //ĞÂµÄshake
-    private Vector3 originalChildPosition; // ¼ÇÂ¼×Ó¶ÔÏóµÄ³õÊ¼Î»ÖÃ
-    private Transform childToShake; // ÒıÓÃµÚÒ»¸ö×Ó¶ÔÏó
+    //ï¿½Âµï¿½shake
+    private Vector3 originalChildPosition; // ï¿½ï¿½Â¼ï¿½Ó¶ï¿½ï¿½ï¿½Ä³ï¿½Ê¼Î»ï¿½ï¿½
+    private Transform childToShake; // ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -58,11 +59,11 @@ public class GhostController : MonoBehaviour, IGhostController
             ghostLight.enabled = false;
         }
 
-        // ¼ì²éÊÇ·ñÓĞ×Ó¶ÔÏó
+        // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
         if (transform.childCount > 0)
         {
-            childToShake = transform.GetChild(0); // »ñÈ¡µÚÒ»¸ö×Ó¶ÔÏó
-            originalChildPosition = childToShake.localPosition; // ¼ÇÂ¼×Ó¶ÔÏóµÄ³õÊ¼Î»ÖÃ
+            childToShake = transform.GetChild(0); // ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
+            originalChildPosition = childToShake.localPosition; // ï¿½ï¿½Â¼ï¿½Ó¶ï¿½ï¿½ï¿½Ä³ï¿½Ê¼Î»ï¿½ï¿½
         }
         else
         {
@@ -205,6 +206,14 @@ public class GhostController : MonoBehaviour, IGhostController
     public void Stun(float duration)
     {
         StartCoroutine(ShakeAndPause(duration));
+        if (dropManager != null)
+    {
+        dropManager.DropItem(transform.position); // åœ¨é¬¼é­‚å½“å‰ä½ç½®æ‰è½ç‰©å“
+    }
+    else
+    {
+        Debug.LogWarning("DropManager is not assigned!");
+    }
     }
 
     IEnumerator ShakeAndPause(float duration)
@@ -212,7 +221,7 @@ public class GhostController : MonoBehaviour, IGhostController
         if (childToShake == null)
         {
             Debug.LogError("No child to shake. Make sure the child object is properly initialized.");
-            yield break; // Èç¹ûÃ»ÓĞ×Ó¶ÔÏó£¬Ö±½ÓÍË³ö
+            yield break; // ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ë³ï¿½
         }
 
         isPaused = true;
