@@ -4340,6 +4340,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 3
   randomMoveDuration: 2
+  dropManager: {fileID: 0}
   minX: -18
   maxX: 17
   minY: 0
@@ -4620,6 +4621,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 5
   randomMoveDuration: 2
+  dropManager: {fileID: 0}
   minX: -18
   maxX: 0
   minY: 0
@@ -9183,7 +9185,7 @@ GameObject:
   - component: {fileID: 669444174}
   - component: {fileID: 669444173}
   - component: {fileID: 669444172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -15472,8 +15474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bb748b80ec948dea7fc06b992ff6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPanel: {fileID: 208278972}
-  isMenuActive: 0
 --- !u!1 &1117016973
 GameObject:
   m_ObjectHideFlags: 0
@@ -15929,6 +15929,7 @@ GameObject:
   - component: {fileID: 1139638362}
   - component: {fileID: 1139638361}
   - component: {fileID: 1139638360}
+  - component: {fileID: 1139638363}
   m_Layer: 0
   m_Name: Ghost1
   m_TagString: Ghost
@@ -16031,6 +16032,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 4
   randomMoveDuration: 2
+  dropManager: {fileID: 1139638363}
   minX: 3
   maxX: 17
   minY: 0
@@ -16039,6 +16041,26 @@ MonoBehaviour:
   maxZ: 2
   tuto: 0
   moveAllowed: 0
+--- !u!114 &1139638363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139638357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df83c56883c64c5988aa328f49c7852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 6441887728800020234, guid: ba3754492b80f448884cc61f352ade8e, type: 3}
+  dropChance: 1
+  ghostObjects:
+  - {fileID: 1139638357}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1153566983
 GameObject:
   m_ObjectHideFlags: 0
@@ -18103,6 +18125,7 @@ GameObject:
   - component: {fileID: 1335704779}
   - component: {fileID: 1335704778}
   - component: {fileID: 1335704777}
+  - component: {fileID: 1335704781}
   m_Layer: 0
   m_Name: Ghost3
   m_TagString: Ghost
@@ -18143,6 +18166,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 4
   randomMoveDuration: 2
+  dropManager: {fileID: 1335704781}
   minX: -18
   maxX: 0
   minY: 0
@@ -18213,6 +18237,26 @@ CapsuleCollider:
   m_Height: 11.1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1335704781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335704775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df83c56883c64c5988aa328f49c7852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 6441887728800020234, guid: ba3754492b80f448884cc61f352ade8e, type: 3}
+  dropChance: 1
+  ghostObjects:
+  - {fileID: 1335704775}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1339629630
 GameObject:
   m_ObjectHideFlags: 0
@@ -21265,6 +21309,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 4
   randomMoveDuration: 2
+  dropManager: {fileID: 0}
   minX: 3
   maxX: 17
   minY: 0
@@ -21983,6 +22028,7 @@ GameObject:
   - component: {fileID: 1642676146}
   - component: {fileID: 1642676145}
   - component: {fileID: 1642676144}
+  - component: {fileID: 1642676148}
   m_Layer: 0
   m_Name: Ghost2
   m_TagString: Ghost
@@ -22046,6 +22092,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotationSpeed: 3
   randomMoveDuration: 2
+  dropManager: {fileID: 1642676148}
   minX: -18
   maxX: 17
   minY: 0
@@ -22093,6 +22140,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509bec38b5d6d45488f1a63d61dc926e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1642676148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642676142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df83c56883c64c5988aa328f49c7852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 6441887728800020234, guid: ba3754492b80f448884cc61f352ade8e, type: 3}
+  dropChance: 1
+  ghostObjects:
+  - {fileID: 1642676142}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1644248450
 GameObject:
   m_ObjectHideFlags: 0

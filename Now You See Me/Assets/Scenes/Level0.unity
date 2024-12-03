@@ -3307,6 +3307,11 @@ MonoBehaviour:
   dropItems:
   - {fileID: 6441887728800020234, guid: ba3754492b80f448884cc61f352ade8e, type: 3}
   dropChance: 1
+  ghostObjects:
+  - {fileID: 349114010}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &358175949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5751,9 +5756,9 @@ GameObject:
   - component: {fileID: 669444174}
   - component: {fileID: 669444173}
   - component: {fileID: 669444172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
