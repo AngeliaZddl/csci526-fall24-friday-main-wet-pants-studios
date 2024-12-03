@@ -35,6 +35,20 @@ public class ghostSanity : MonoBehaviour
         //If player stay in the ghost's trigger, sanity lose
         if (other.CompareTag("Ghost"))
         {
+
+            // 获取 Ghost 上的 GhostController 脚本
+            GhostController ghostController = other.GetComponent<GhostController>();
+
+            // 如果 Ghost 存在并且正在 shaking，则跳过掉血逻辑
+            if (ghostController != null && ghostController.getShakeStatus())
+            {
+                setSanBarToGreenColor();
+                Debug.Log("Ghost is shaking. No sanity loss.");
+                return; // 跳过后续逻辑
+            }
+
+
+
             setSanBarToRedColor();
             // 调用另一个脚本中的函数
             playerSanity.decreaseSanity();

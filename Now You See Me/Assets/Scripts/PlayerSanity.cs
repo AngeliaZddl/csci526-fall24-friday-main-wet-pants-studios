@@ -30,6 +30,12 @@ public class PlayerSanity : MonoBehaviour
 
     }
 
+    public void restoreSanity()
+    {
+        playerSanity = Mathf.Min(playerSanity + 8, maxSanity);
+
+    }
+
 
 
     // Update is called once per frame
