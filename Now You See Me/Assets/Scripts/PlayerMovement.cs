@@ -30,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = walkingClip;
         audioSource.loop = true;  // 循环播放
-        audioSource.volume = 0.5f;  // 音量大小
-        audioSource.pitch = 1.5f;  // 设置音频播放速度为二倍速
+        audioSource.volume = 0.1f;  // 音量大小
+        audioSource.pitch = 1f;  // 设置音频播放速度为二倍速
     }
 
     void Update()

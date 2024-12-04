@@ -6350,7 +6350,7 @@ MonoBehaviour:
   moveAllowed: 1
   turnAllowed: 1
   totalDistanceMoved: 0
-  walkingClip: {fileID: 8300000, guid: 2ff095ad3964cec44a5f631d762fa014, type: 3}
+  walkingClip: {fileID: 8300000, guid: fc9c5c6ad8b6ac74ca180bc3a8dd4274, type: 3}
 --- !u!143 &453006246
 CharacterController:
   m_ObjectHideFlags: 0
