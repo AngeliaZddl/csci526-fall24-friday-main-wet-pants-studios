@@ -63,6 +63,15 @@ public class PlayerMovement : MonoBehaviour
             // 计算移动距离
             CalculateDistanceMoved();
         }
+        else
+        {
+            // 如果不允许移动，立即停止音效
+            if (isWalking)
+            {
+                audioSource.Stop();
+                isWalking = false;
+            }
+        }
 
         if (turnAllowed)
         {
@@ -77,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(Vector3.up * mouseX);
         }
     }
+
 
     // 计算移动距离
     void CalculateDistanceMoved()
