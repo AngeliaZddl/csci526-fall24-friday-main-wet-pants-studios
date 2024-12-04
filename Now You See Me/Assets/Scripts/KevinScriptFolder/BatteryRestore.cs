@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class BatteryRestore : MonoBehaviour
 {
-    public float destroyRadius = 2f; // ¾àÀë°ë¾¶
-    private Transform playerTransform; // Íæ¼Ò Transform
+    public float destroyRadius = 2f;        // é”€æ¯åŠå¾„
+    public float restoreAmount = 25f;      // æ¢å¤çš„ç”µé‡å€¼
+    private Transform playerTransform;     // ç©å®¶ Transform
+    private UVLightMechanics uvLightMechanics; // UVLightMechanics è„šæœ¬å¼•ç”¨
 
     private void Start()
     {
-        // ²éÕÒÍæ¼Ò¶ÔÏó²¢»ñÈ¡Æä Transform
+        // è·å–ç©å®¶ Transform
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -17,21 +19,37 @@ public class BatteryRestore : MonoBehaviour
         {
             Debug.LogError("No Player found in the scene! Make sure the Player is tagged as 'Player'.");
         }
+
+        // è·å– UVLightMechanics è„šæœ¬
+        uvLightMechanics = FindObjectOfType<UVLightMechanics>();
+        if (uvLightMechanics == null)
+        {
+            Debug.LogError("UVLightMechanics script not found in the scene!");
+        }
     }
 
     private void Update()
     {
-        // ¼ì²éÍæ¼ÒÊÇ·ñ´æÔÚ
         if (playerTransform != null)
         {
-            // ¼ÆËãÍæ¼ÒÓëµ±Ç°ÎïÌåµÄ¾àÀë
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-
-            // Èç¹û¾àÀëĞ¡ÓÚµÈÓÚ destroyRadius£¬Ïú»ÙÎïÌå
             if (distanceToPlayer <= destroyRadius)
             {
+                // æ¢å¤ç”µé‡
+                if (uvLightMechanics != null && uvLightMechanics.batteryBar != null)
+                {
+                    uvLightMechanics.batteryBar.value += restoreAmount;
+
+                    // ç¡®ä¿ç”µé‡ä¸è¶…è¿‡æœ€å¤§å€¼
+                    if (uvLightMechanics.batteryBar.value > uvLightMechanics.batteryBar.maxValue)
+                    {
+                        uvLightMechanics.batteryBar.value = uvLightMechanics.batteryBar.maxValue;
+                    }
+                }
+
+                // é”€æ¯ç”µæ± å¯¹è±¡
                 Destroy(gameObject);
-                Debug.Log("BatteryRestore object destroyed due to proximity.");
+                Debug.Log("Battery restored and object destroyed.");
             }
         }
     }
