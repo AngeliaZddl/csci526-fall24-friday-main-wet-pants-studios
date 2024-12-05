@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     public GameObject menuPanel; // 菜单的 Panel 对象
-    // public GameObject menuOnScreen;
+    public GameObject menuOnScreen;
     [HideInInspector]
     public bool isMenuActive = false;
 
@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
         // 隐藏并锁定鼠标光标
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        // menuOnScreen.SetActive(true);
+        menuOnScreen.SetActive(true);
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour
         {
             isMenuActive = !isMenuActive;
             menuPanel.SetActive(isMenuActive);
-            // menuOnScreen.SetActive(false);
+            menuOnScreen.SetActive(false);
 
             // 暂停或恢复游戏
             Time.timeScale = isMenuActive ? 0f : 1f;
@@ -135,7 +135,7 @@ public class MenuController : MonoBehaviour
     {
         isMenuActive = false;
         menuPanel.SetActive(false);
-        // menuOnScreen.SetActive(true);
+        menuOnScreen.SetActive(true);
 
         // 恢复游戏
         Time.timeScale = 1f;

@@ -3418,6 +3418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 44179077}
+  menuOnScreen: {fileID: 2015492123}
   isMenuActive: 0
 --- !u!4 &242717565
 Transform:
@@ -5213,7 +5214,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 242717564}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23697,7 +23698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2015492124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23707,7 +23708,7 @@ RectTransform:
   m_GameObject: {fileID: 2015492123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.08, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 855732884}
