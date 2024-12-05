@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CloseInstruction : MonoBehaviour
 {
@@ -13,12 +14,18 @@ public class CloseInstruction : MonoBehaviour
     void Start()
     {
         // 初始化：显示浮动按钮，隐藏说明面板
-        instrucOnScreen.SetActive(true);
-        instruction.SetActive(false);
-
-        // 锁定鼠标
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (SceneManager.GetActiveScene().name == "Level0") {
+            instrucOnScreen.SetActive(false);
+            instruction.SetActive(true);
+            isInstructionOpen = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        } else {
+            instrucOnScreen.SetActive(true);
+            instruction.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     void Update()
