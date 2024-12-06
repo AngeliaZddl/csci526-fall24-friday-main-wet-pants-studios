@@ -38,6 +38,18 @@ public class MainMenuController : MonoBehaviour
         Debug.Log("Loading SampleScene...");
         SceneManager.LoadScene(gameScene3);  // 加载 SampleScene
     }
+
+    public void Instruction()
+    {
+        // 恢复时间
+        Time.timeScale = 1f;
+
+        // 隐藏并锁定鼠标光标
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        SceneManager.LoadScene("Instruction");
+    }
     // 退出游戏
     public void QuitGame()
     {

@@ -6,8 +6,9 @@ public class MenuController : MonoBehaviour
 {
     public GameObject menuPanel; // 菜单的 Panel 对象
     public GameObject menuOnScreen;
-    [HideInInspector]
     public bool isMenuActive = false;
+    
+    public GameObject instructionPanel;
 
     void Start()
     {
@@ -110,6 +111,17 @@ public class MenuController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Instruction()
+    {
+        // 恢复时间
+        Time.timeScale = 1f;
+        instructionPanel.SetActive(true);
+        menuPanel.SetActive(false);
+        // 隐藏并锁定鼠标光标
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // 退出游戏
